@@ -1,0 +1,772 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0113)https://askbot.fedoraproject.org/en/question/131006/how-install-vmware-workstation-player-1502-on-fedora-29-host/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" class=" js history"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/cb=gapi.loaded_1" async=""></script><script src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/cb=gapi(1).loaded_0" async=""></script> <title>How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora: Community Knowledge Base and Support Forum</title> <meta name="description" content="Is possible install vmware workstation 15.0.2 on fedora 29. Which kernel we need? What tools we need? Is there an advice to avoid problems using vmware software?">  <meta http-equiv="X-UA-Compatible" content="IE=EDGE"> <meta name="keywords" content=",Ask Fedora, forum, community, support, help"> <meta name="referrer" content="always"> <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> <link rel="shortcut icon" href="https://ask.fedoraproject.org/upfiles/ask_favicon.ico"> <link rel="alternate" type="application/rss+xml" href="https://askbot.fedoraproject.org/en/feeds/rss/"> <link rel="stylesheet" href="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/beefa95880b8.css" type="text/css"> <link href="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/custom.css" rel="stylesheet" type="text/css"> <link href="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/css" rel="stylesheet" type="text/css"> <link href="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/css(1)" rel="stylesheet" type="text/css"> <link rel="canonical" href="https://askbot.fedoraproject.org/en/question/131006/how-install-vmware-workstation-player-1502-on-fedora-29-host/"> <link rel="stylesheet" type="text/css" href="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/wmd.css"> <script type="text/javascript" src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/modernizr.custom.js"></script> <script type="text/javascript">
+    var askbot = {};
+    askbot['data'] = {};
+    askbot['data']['userIsAuthenticated'] = false;
+    askbot['data']['languageCode'] = 'en';
+    
+        askbot['data']['userReputation'] = 0;
+        askbot['data']['userEmail'] = null;
+        askbot['data']['userIsReadOnly'] = false;//in principle we allow anon users to start posting
+    
+    askbot['urls'] = {};
+    askbot['settings'] = {};
+    askbot['messages'] = {};
+    
+</script> <script type="text/javascript" src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/saved_resource"></script> <script type="text/javascript">
+        /*<![CDATA[*/
+        //below is pure cross-browser javascript, no jQuery
+        askbot['data']['userIsThreadModerator'] = false;
+        askbot['data']['oldestAnswerId'] = 131010;
+        askbot['data']['threadIsClosed'] = false;
+        
+            askbot['settings']['readOnlyModeEnabled'] = true;
+        
+        (function(){
+
+            var hasClass = function(node, selector) {
+                var classes = (" " + node.className + " ").split(' ');
+                for (var i = 0; i < classes.length; i++) {
+                    if (classes[i] === selector) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            var findClosestParentByClassName = function(node, className) {
+                if (hasClass(node, className)) {
+                    return node;
+                }
+                if (node.nodeName === 'BODY') {
+                    return false;
+                } else {
+                    return findClosestParentByClassName(node.parentNode, className);
+                }
+            };
+
+            var findChildrenByClassName = function(node, className) {
+                var nodes = [];
+                var walk = function(node) {
+                    if (hasClass(node, className)) {
+                        nodes.push(node);
+                    }
+                    if (node.childNodes) {
+                        for (var i=0; i < node.childNodes.length; i++) {
+                            walk(node.childNodes[i]);
+                        }
+                    }
+                };
+                walk(node);
+                return nodes;
+            };
+
+            var getTextContent = function(node) {
+                var text = node.innerText || node.textContent;
+                if (text === undefined) {
+                    return '';
+                } else {
+                    return text;
+                }
+            };
+
+            var hasAttribute = function(node, attrName) {
+                if (node.hasAttribute) {
+                    return node.hasAttribute(attrName);
+                } else {
+                    return (!(!(node.getAttribute(attrName))));
+                }
+            };
+
+            var findChildByAttribute = function(node, attrName, attrVal) {
+                var children = node.childNodes;
+                for (var i = 0; i < children.length; i++) {
+                    var child = children[i];
+                    if (child.getAttribute(attrName) === attrVal) {
+                        return child;
+                    }
+                };
+                return null;
+            };
+
+            var postIsComment = function(postId) {
+                if (document.getElementById('comment-' + postId)) {
+                    return true;
+                }
+                return false;
+            };
+
+            var getPost = function(postId) {
+                return document.getElementById('post-id-' + postId);
+            }
+
+            var postIsQuestion = function(postId) {
+                var content = getPost(postId);
+                if (content) {
+                    if (hasClass(content, 'js-comment')) {
+                        return false;
+                    }
+                    if (findClosestParentByClassName(content, 'js-question')) {
+                        return true;
+                    }
+                }
+                return false;
+            };
+
+            var removeNode = function(node) {
+                node.parentNode.removeChild(node);
+            };
+
+            var trim = function(text) {
+                return text.replace(/^\s+|\s+$/g, '');
+            };
+
+            var data = askbot['data'];
+            var isAuthorOfPost = function(post_id) {
+                return (data['user_posts'] && data['user_posts'][post_id]);
+            };
+
+            if (data['userIsAuthenticated']){
+                var votes = {};
+                
+                data['user_votes'] = votes;
+                var posts = {};
+                
+                data['user_posts'] = posts;
+            }
+
+            function render_vote_buttons(post_type, post_id){
+                var upvote_btn = document.getElementById(
+                    post_type + '-img-upvote-' + post_id
+                );
+                var downvote_btn = document.getElementById(
+                    post_type + '-img-downvote-' + post_id
+                );
+                if (data['userIsAuthenticated']){
+                    if (post_id in data['user_votes']){
+                        var vote = data['user_votes'][post_id];
+                        if (vote == -1){
+                            var btn = downvote_btn;
+                        } else if (vote == 1){
+                            var btn = upvote_btn;
+                        } else {
+                            return;
+                        }
+                        if (post_type == 'comment'){
+                            btn.className = btn.className + ' upvoted';
+                        } else {
+                            btn.className = btn.className + ' on';
+                        }
+                    }
+                }
+            }
+
+            function hide_convert_answer_links(post_id){
+                var id1 = 'post-' + post_id + '-convert';//for repost as Q comment
+                var repostAsQuestionComment = document.getElementById(id1);
+                var id2 = 'post-' + post_id + '-repost-as-comment-under-previous-answer';
+                var repostAsPrevAnsComment = document.getElementById(id2);
+                var extraOptsList = repostAsQuestionComment.parentNode;
+                var extraOpts = extraOptsList.parentNode;
+
+                var isAuthenticated = data['userIsAuthenticated'];
+                var isMod = data['userIsAdminOrMod'];
+                if (isAuthenticated && (isMod || isAuthorOfPost(post_id))) {
+                    //still may need to hide because answer may be too long
+                    var answer_container = getPost(post_id);
+                    var answerBody = findChildrenByClassName(answer_container, 'post-body')[0];
+                    //todo: this is not reliable
+                    var answerBodyNodes = answerBody.childNodes;
+                    var answerElement = answerBodyNodes[answerBodyNodes.length - 1];
+                    if (trim(getTextContent(answerElement)).length > askbot['data']['maxCommentLength']) {
+                        repostAsQuestionComment.parentNode.removeChild(repostAsQuestionComment);
+                        repostAsPrevAnsComment.parentNode.removeChild(repostAsPrevAnsComment);
+                    } else if (parseInt(post_id) === data['oldestAnswerId']) {
+                        repostAsPrevAnsComment.parentNode.removeChild(repostAsPrevAnsComment);
+                    }
+                } else {
+                    repostAsQuestionComment.parentNode.removeChild(repostAsQuestionComment);
+                    repostAsPrevAnsComment.parentNode.removeChild(repostAsPrevAnsComment);
+                }
+
+                //if the whole control is empty - remove it
+                if (extraOptsList.getElementsByTagName('li').length === 0) {
+                    extraOpts.parentNode.removeChild(extraOpts);
+                }
+            }
+
+            function hidePublishAnswerLink(postId) {
+                if (data['userIsThreadModerator'] === false) {
+                    //hide publish/unpublish answer links
+                    var answerId = 'post-' + postId + '-publish';
+                    var pubBtn = document.getElementById(answerId);
+                    if (pubBtn) {
+                        removeNode(pubBtn);
+                    }
+                }
+            }
+
+            function remove_all_controls(post_id) {
+                var deleteBtn = document.getElementById('post-' + post_id + '-delete');
+                var controls = deleteBtn.parentNode;
+                if (controls.className == 'comment-content') {
+                    removeNode(deleteBtn);
+                    var convertLinks = findChildrenByClassName(controls, 'convert-comment');
+                    if (convertLinks.length) {
+                        removeNode(convertLinks[0]);
+                    }
+                    var editLinks = findChildrenByClassName(controls, 'edit');
+                    if (editLinks.length) {
+                        removeNode(editLinks[0]);
+                    }
+                } else {
+                    var buttons = controls.childNodes;
+                    var numButtons = buttons.length;
+                    for (var i = numButtons - 1; i >= 0; i--) {
+                        removeNode(buttons[i]);
+                    }
+                }
+            };
+
+            function render_post_controls(post_id, is_wiki){
+
+                //in this case remove all post controls
+                if (askbot['settings']['readOnlyModeEnabled'] === true) {
+                    remove_all_controls(post_id);
+                    return;
+                }
+
+                var deleteBtn = document.getElementById('post-' + post_id + '-delete');
+                var controls = deleteBtn.parentNode;
+                var mergeBtn = findChildrenByClassName(controls, 'question-merge');
+                if (mergeBtn.length === 1 && data['userIsThreadModerator'] === false) {
+                    removeNode(mergeBtn[0]);
+                }
+
+                if (data['userIsAdminOrMod']) {
+                    return;//all remaining functions stay on
+                }
+
+                
+
+                if (isAuthorOfPost(post_id)) {
+                    if (postIsQuestion(post_id) && 4) {
+                        if (data['userReputation'] < 1) {
+                            if (!data['userIsAdminOrMod']) {
+                                removeNode(deleteBtn);
+                            }
+                        }
+                    }
+                    //todo: remove edit button from older comments
+                    return;
+                }
+
+                if (//maybe remove "delete" button
+                    (data['userReputation'] <
+                    2000) || data['userIsReadOnly']
+                ) {
+                    removeNode(deleteBtn);
+                }
+
+                var canFlagPosts = data['userReputation'] >= 15;
+                var flags = findChildrenByClassName(controls, 'question-flag');
+                if (flags.length > 0 && !canFlagPosts) {
+                    for (var i = 0; i < flags.length; i++) {
+                        removeNode(flags[i]);
+                    }
+                }
+                var closeBtn = findChildrenByClassName(controls, 'question-close');
+                if (
+                    closeBtn.length === 1 &&
+                    (
+                        (data['userReputation'] < 1500) ||
+                        data['userIsReadOnly']
+                    )
+                ) {
+                    removeNode(closeBtn[0]);
+                }
+                var enoughRep = (data['userReputation'] >= 1500 ||
+                        (is_wiki && data['userReputation'] >= 750));
+                if (//maybe remove "edit" button
+                    !enoughRep || data['userIsReadOnly']//only authors edit comments
+                ){
+                    var editBtns = findChildrenByClassName(getPost(post_id), 'js-edit');
+                    var numBtns = editBtns.length;
+                    for (var i=0; i<numBtns; i++) {
+                        removeNode(editBtns[i]);
+                    }
+                }
+                if (//maybe remove retag button
+                    (!isAuthorOfPost(post_id)) &&
+                    postIsQuestion(post_id) &&
+                    ((data['userReputation'] <
+                    500) ||
+                    data['userIsReadOnly'])
+                ){
+                    var retagBtn = document.getElementById('retag');
+                    if (retagBtn) {
+                        removeNode(retagBtn);
+                    }
+                }
+            }
+
+            function render_add_answer_button(){
+                var add_answer_btn = document.getElementById('add-answer-btn');
+                if (askbot['data']['userIsAuthenticated']){
+                    if (askbot['data']['userId'] == 20066){
+                        add_answer_btn.className += ' answer-own-question';
+                        add_answer_btn.setAttribute(
+                            'value',
+                            'Answer Your Own Question'
+                        )
+                    } else {
+                        add_answer_btn.setAttribute(
+                           'value',
+                           'Post Your Answer'
+                        )
+                    }
+                } else {
+                    add_answer_btn.setAttribute(
+                        'value',
+                        'Login/Signup to Post'
+                    );
+                }
+            }
+
+            function hide_convert_links() {
+                var isAuthenticated = data['userIsAuthenticated'];
+                var isMod = data['userIsAdminOrMod'];
+                if (isAuthenticated && isMod) {
+                    return;
+                }
+                var convertForms = findChildrenByClassName(document, 'convert-comment');
+                for (var i = 0; i < convertForms.length; i++) {
+                    //get comment id
+                    var form = convertForms[i];
+                    var idInput = findChildByAttribute(form, 'name', 'comment_id');
+                    var commentId = idInput.getAttribute('value');
+                    if (! isAuthorOfPost(commentId) ) {
+                        form.setAttribute('style', 'display:none;');
+                    }
+                }
+            }
+
+            askbot['functions'] = askbot['functions'] || {};
+            askbot['functions']['renderPostVoteButtons'] = render_vote_buttons;
+            askbot['functions']['renderPostControls'] = render_post_controls;
+            askbot['functions']['renderAddAnswerButton'] = render_add_answer_button;
+            askbot['functions']['hideConvertLinks'] = hide_convert_links;
+            askbot['functions']['hideConvertAnswerLinks'] = hide_convert_answer_links;
+            askbot['functions']['hidePublishAnswerLink'] = hidePublishAnswerLink;
+        })();
+        /*]]>*/
+    </script> </head> <body class="two-col question-page anon lang-en"> <div class="notify" style="display:none"> <div class="content-wrapper"> <a id="closeNotify" onclick="notify.close(true)"></a> </div> </div> <!-- template header.html --> <div id="header" class="without-logo"> <div class="content-wrapper"> <div id="userToolsNav"> <a href="https://askbot.fedoraproject.org/en/account/signin/?next=/en/question/131006/how-install-vmware-workstation-player-1502-on-fedora-29-host/">Hi there! Please sign in</a> <a class="help" href="https://askbot.fedoraproject.org/en/help/" title="help">help</a> <span class="lang-nav dropdown-toggle"> <ul class="dropdown-menu"> <li> <a href="https://askbot.fedoraproject.org/el/" data-lang="el">Greek</a> </li> <li> <a href="https://askbot.fedoraproject.org/ru/" data-lang="ru">Russian</a> </li> <li> <a href="https://askbot.fedoraproject.org/zh-tw/" data-lang="zh-tw">Traditional Chinese</a> </li> <li> <a href="https://askbot.fedoraproject.org/ca/" data-lang="ca">Catalan</a> </li> <li> <a href="https://askbot.fedoraproject.org/zh-cn/" data-lang="zh-cn">Simplified Chinese</a> </li> <li> <a href="https://askbot.fedoraproject.org/pt-br/" data-lang="pt-br">Brazilian Portuguese</a> </li> <li> <a href="https://askbot.fedoraproject.org/id/" data-lang="id">Indonesian</a> </li> <li> <a href="https://askbot.fedoraproject.org/es/" data-lang="es">Spanish</a> </li> </ul> <i class="fa fa-globe"></i> <span class="curr-lang">English</span> <span class="toggle">▼</span> </span> </div> <div id="metaNav"> <a id="navTags" href="https://askbot.fedoraproject.org/en/tags/">tags</a> <a id="navUsers" href="https://askbot.fedoraproject.org/en/users/">users</a> <a id="navBadges" href="https://askbot.fedoraproject.org/en/badges/">badges</a> </div> <div class="clean"></div> </div> <div class="content-wrapper system-messages">
+            AskFedora has moved to a new platform at <a href="https://ask.fedoraproject.org/">ask.fedoraproject.org</a>. This site is now read-only.
+        </div> </div> <!-- end template header.html --> <!-- template secondary_header.html --> <div id="secondaryHeader"> <div class="content-wrapper"> <form action="https://askbot.fedoraproject.org/en/questions/" id="searchForm" class="scopes-True-True-False" method="get"> <table width="100%"> <tbody><tr> <td width="1"><a id="homeButton" href="https://askbot.fedoraproject.org/en/questions/"><i class="fa fa-home"></i></a></td> <td width="1"><div id="scopeNav"> <a class="scope-selector " href="https://askbot.fedoraproject.org/en/questions/scope:all/sort:activity-desc/page:1/">ALL</a> <a class="scope-selector " href="https://askbot.fedoraproject.org/en/questions/scope:unanswered/sort:answers-asc/page:1/">UNANSWERED</a> </div></td> <td width="*" class="search-bar"> <div id="searchBar" class="search-bar"><input class="searchInput" type="text" autocomplete="off" value="" name="query" placeholder="Search or ask your question" id="keywords"><input type="submit" value="" name="search" class="searchBtn"><input type="button" value="X" name="reset_query" class="cancelSearchBtn" style="display: none;"><div class="search-drop-menu empty" style="display: none;"><ul></ul><div class="wait-icon-box" style="display: none;"><img src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/ajax-loader.gif"></div><div class="footer"><button class="submit btn btn-default">Ask Your Question</button></div></div></div> </td> <td width="1"> <a id="askButton" class="button" href="https://askbot.fedoraproject.org/en/questions/ask/">
+            Ask Your Question
+        </a> </td> </tr> </tbody></table> </form> </div> </div> <div class="content-wrapper"> <div id="ContentLeft"> <div class="post js-question" data-post-id="131006"> <div class="vote-buttons"> <div id="question-img-upvote-131006" class="question-img-upvote post-vote upvote"> </div> <div id="question-vote-number-131006" class="vote-number" title="current number of votes">3</div> <div id="question-img-downvote-131006" class="question-img-downvote post-vote downvote"> </div> <script type="text/javascript">
+    askbot['functions']['renderPostVoteButtons']('question', '131006');
+</script> <a class="twitter-share icon" title="Share this content on twitter"></a> <a class="facebook-share icon" title="Share this content on facebook"></a> <a class="linkedin-share icon" title="Share this content on linkedin"></a> <div id="___plusone_0" style="position: absolute; width: 450px; left: -10000px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" width="100%" id="I0_1570370317890" name="I0_1570370317890" src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/fastbutton.html" data-gapiattached="true"></iframe></div><g:plusone size="small" count="false" data-gapiscan="true" data-onload="true" data-gapistub="true"></g:plusone> </div> <div id="post-id-131006" class="post-content"> <h1 class="js-editable" id="js-question-title-131006" data-get-text-url="/en/s/get-question-title/?question_id=131006" data-save-text-url="/en/s/set-question-title/?question_id=131006" data-save-text-param-name="title" data-validated-text-param-name="title" data-min-lines="1" data-editor-type="plain" data-validator="askbot.validators.titleValidator"><div class="js-error"></div> <div class="js-editable-content">How install vmware workstation player 15.0.2 on fedora 29 host</div><div style="display: none;"><div class="js-simple-editor"><textarea cols="60" rows="10" maxlength="1000"></textarea><pre class="mirror"></pre></div></div> <div class="js-editable-controls"> <button id="js-edit-btn-question-title-131006" class="btn-link js-edit">edit</button> <button style="display: none;">save</button><button style="display: none;">cancel</button></div> </h1> <ul id="question-tags" class="tags post-tags tags"> <li> <div class="js-tag "><a class="js-tag-name" rel="tag" href="https://askbot.fedoraproject.org/en/questions/scope:all/sort:activity-desc/tags:vmware-workstation-15/page:1/" data-tag-name="vmware-workstation-15">vmware-workstation-15</a></div> </li> <li> <div class="js-tag "><a class="js-tag-name" rel="tag" href="https://askbot.fedoraproject.org/en/questions/scope:all/sort:activity-desc/tags:howto/page:1/" data-tag-name="howto">howto</a></div> </li> <li> <div class="js-tag "><a class="js-tag-name" rel="tag" href="https://askbot.fedoraproject.org/en/questions/scope:all/sort:activity-desc/tags:installing-software/page:1/" data-tag-name="installing-software">installing-software</a></div> </li> <li> <div class="js-tag "><a class="js-tag-name" rel="tag" href="https://askbot.fedoraproject.org/en/questions/scope:all/sort:activity-desc/tags:third-party/page:1/" data-tag-name="third-party">third-party</a></div> </li> <li> <div class="js-tag "><a class="js-tag-name" rel="tag" href="https://askbot.fedoraproject.org/en/questions/scope:all/sort:activity-desc/tags:fedora29/page:1/" data-tag-name="fedora29">fedora29</a></div> </li> </ul> <div class="clearfix"></div> <div class="post-body"> <div class="js-editable-hide-post-body-131006"> <div class="post-update-info-container"> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://askbot.fedoraproject.org/en/questions/131006/revisions/"><strong>
+    
+        
+        asked <abbr class="timeago" title="2018-12-19 21:57:09 -0500" style="display: inline;">Dec 20 '18</abbr> </strong></a> </p> <div class="user-card"> <a class="js-avatar-box" href="https://askbot.fedoraproject.org/en/users/20066/christianbueno/"><img class="js-avatar gravatar" width="32" height="32" src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/nophoto.png" title="christianbueno" alt="christianbueno gravatar image" style="max-width: 685px; height: auto;"></a> <div class="user-info"> <a href="https://askbot.fedoraproject.org/en/users/20066/christianbueno/">christianbueno</a> <br> <span class="reputation-score">685</span> <span class="badges" title="christianbueno has 18 gold badges, 38 silver badges and 60 bronze badges"> <span class="badge1">●</span><span class="badgecount">18</span> <span class="badge2">●</span><span class="badgecount">38</span> <span class="badge3">●</span><span class="badgecount">60</span> </span> </div> </div> </div> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://askbot.fedoraproject.org/en/questions/131006/revisions/"><strong>
+    
+        
+        updated <abbr class="timeago" title="2018-12-19 22:58:09 -0500" style="display: inline;">Dec 20 '18</abbr> </strong></a> </p> </div> </div> </div> <div class="js-editable" id="js-post-body-131006" data-get-text-url="/en/s/get-post-body/?post_id=131006" data-save-text-url="/en/s/set-post-body/?post_id=131006" data-save-text-param-name="body_text" data-validated-text-param-name="body_html" data-min-lines="10" data-editor-type="markdown" data-validator="askbot.validators.questionDetailsValidator"><div class="js-error"></div> <div class="js-editable-content"><p>Is possible install vmware  workstation 15.0.2 on fedora 29.<br></p> <p>Which kernel we need?<br>
+What tools we need?<br>
+Is there an advice to avoid problems using vmware software? <br></p> </div><div style="display: none;"><div><div class="clearfix"></div><div class="wmd-container"><div id="wmd-button-bar-1" class="wmd-panel"></div><textarea id="editor-1"></textarea><pre class="mirror"></pre><div class="on-state wmd-previewer-toggle">Preview: (hide)</div><div id="previewer-1" class="wmd-preview"></div></div></div></div> <div class="js-editable-controls"><button style="display: none;">save</button><button style="display: none;">cancel</button></div> </div> </div> <div id="question-controls" class="post-controls"> </div> <div class="comments empty ordering-forward" data-parent-post-type="question" data-parent-post-id="131006"><div class="content"></div><div class="controls"><a class="js-open-editor-btn">add a comment</a></div></div> </div> </div> <div class="clean"></div> <div class="tabBar tabBar-answer"> <h2 id="questionCount"> <span class="count">4</span> Answers
+    </h2> <div class="tabsA"> <span class="label">
+                    Sort by »
+                    </span> <a id="oldest" href="https://askbot.fedoraproject.org/en/question/131006/how-install-vmware-workstation-player-1502-on-fedora-29-host/?sort=oldest#sort-top"><span>oldest</span></a> <a id="latest" href="https://askbot.fedoraproject.org/en/question/131006/how-install-vmware-workstation-player-1502-on-fedora-29-host/?sort=latest#sort-top"><span>newest</span></a> <a id="votes" href="https://askbot.fedoraproject.org/en/question/131006/how-install-vmware-workstation-player-1502-on-fedora-29-host/?sort=votes#sort-top" classname="on"><span>most voted</span></a> </div> </div> <div class="clean"></div> <div class="pager"> </div> <div class="clean"></div> <a name="131010"></a> <div id="post-id-131010" data-post-id="131010" class="post answer accepted-answer  answered-by-owner "> <div class="vote-buttons"> <div id="answer-img-upvote-131010" class="answer-img-upvote post-vote upvote"> </div> <div id="answer-vote-number-131010" class="vote-number" title="current number of votes">2</div> <div id="answer-img-downvote-131010" class="answer-img-downvote post-vote downvote"> </div> <script type="text/javascript">
+    askbot['functions']['renderPostVoteButtons']('answer', '131010');
+</script> <div id="answer-img-accept-131010" class="answer-img-accept" title="this answer has been selected as correct"></div> </div> <div class="post-content"> <div class="post-body"> <div class="js-editable-hide-post-body-131010"> <div class="post-update-info-container"> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://askbot.fedoraproject.org/en/answers/131010/revisions/"><strong>
+    
+        
+        answered <abbr class="timeago" title="2018-12-19 22:54:04 -0500" style="display: inline;">Dec 20 '18</abbr> </strong></a> </p> <div class="user-card"> <a class="js-avatar-box" href="https://askbot.fedoraproject.org/en/users/20066/christianbueno/"><img class="js-avatar gravatar" width="32" height="32" src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/nophoto.png" title="christianbueno" alt="christianbueno gravatar image" style="max-width: 685px; height: auto;"></a> <div class="user-info"> <a href="https://askbot.fedoraproject.org/en/users/20066/christianbueno/">christianbueno</a> <br> <span class="reputation-score">685</span> <span class="badges" title="christianbueno has 18 gold badges, 38 silver badges and 60 bronze badges"> <span class="badge1">●</span><span class="badgecount">18</span> <span class="badge2">●</span><span class="badgecount">38</span> <span class="badge3">●</span><span class="badgecount">60</span> </span> </div> </div> </div> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://askbot.fedoraproject.org/en/answers/131010/revisions/"><strong>
+    
+        
+        updated <abbr class="timeago" title="2018-12-19 22:58:54 -0500" style="display: inline;">Dec 20 '18</abbr> </strong></a> </p> </div> </div> </div> <div class="js-editable" id="js-post-body-131010" data-get-text-url="/en/s/get-post-body/?post_id=131010" data-save-text-url="/en/s/set-post-body/?post_id=131010" data-save-text-param-name="body_text" data-validated-text-param-name="body_html" data-min-lines="10" data-editor-type="markdown" data-validator="askbot.validators.answerValidator"><div class="js-error"></div> <div class="js-editable-content"><p>Yes , it is.<br>
+I tested  vmware player with the default first kernel 4.18.16 on fedora 29.<br></p> <p>Switch to the root user.<br></p> <pre class="prettyprint"><code><span class="pln">$ sudo </span><span class="pun">-</span><span class="pln">i
+user password</span></code></pre> <p>In a fresh fedora 29 installation, exclude kernel updates, add the following line in the /etc/dnf/dnf.conf file<br></p> <pre class="prettyprint"><code><span class="pln">exclude</span><span class="pun">=</span><span class="pln"> kernel</span><span class="pun">*</span></code></pre> <p>To allow or keep more than 3 kernels , edit the following line, just in case you need update to a new kernel someday, the first earlier kernel won't be erased and will be in the grub menu.</p> <pre class="prettyprint"><code><span class="pln">installonly_limit</span><span class="pun">=</span><span class="lit">0</span></code></pre> <p><img src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/1545279416183638.png" alt="image description" style="max-width: 685px; height: auto;"></p> <p>Now , update the system</p> <pre class="prettyprint"><code><span class="com"># dnf update</span></code></pre> <p>Install vmware, download the software in the <a href="https://my.vmware.com/en/web/vmware/free#desktop_end_user_computing/vmware_workstation_player/15_0">official website</a></p> <p><img src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/1545279822119335.png" alt="image description" style="max-width: 685px; height: auto;"></p> <p>Give permission execution to the file only for the root user.</p> <pre class="prettyprint"><code><span class="com"># chmod 764 ./VMware-Player-15.0.2-10952284.x86_64.bundle</span></code></pre> <p>Install</p> <pre class="prettyprint"><code><span class="com"># ./VMware-Player-15.0.2-10952284.x86_64.bundle</span></code></pre> <p>Solve some issues about running vmware player<br>
+Install some utilities<br></p> <pre class="prettyprint"><code><span class="com"># dnf groupinstall "development tools"</span><span class="pln">
+</span><span class="com"># dnf install kernel-headers kernel-devel</span></code></pre> <p>Thanks to <a href="http://percentl.com/blog/fedora-28-install-vmware-workstation-14x/">Quoc Duan</a></p> <pre class="prettyprint"><code><span class="com"># ln -s /usr/include/linux/version.h /lib/modules/$(uname -r)/build/include/linux/version.h</span><span class="pln">
+</span><span class="com"># dnf install elfutils-libelf-devel</span><span class="pln">
+</span><span class="com"># vmware-modconfig --console --install-all</span></code></pre> <p>At this time you will have vmware working on fedora 29.<br>
+Run the software by terminal if you like.</p> <pre class="prettyprint"><code><span class="com"># vmplayer</span></code></pre> <p><img src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/15452816293200946.png" alt="image description" style="max-width: 685px; height: auto;"></p> </div><div style="display: none;"><div><div class="clearfix"></div><div class="wmd-container"><div id="wmd-button-bar-2" class="wmd-panel"></div><textarea id="editor-2"></textarea><pre class="mirror"></pre><div class="on-state wmd-previewer-toggle">Preview: (hide)</div><div id="previewer-2" class="wmd-preview"></div></div></div></div> <div class="js-editable-controls"><button style="display: none;">save</button><button style="display: none;">cancel</button></div> </div> </div> <div class="answer-controls post-controls"> </div> <div class="comments empty ordering-forward" data-parent-post-type="answer" data-parent-post-id="131010"><div class="content"></div><div class="controls"><a class="js-open-editor-btn">add a comment</a></div></div> </div> <div class="clean"></div> </div> <div class="clean"></div> <a name="134715"></a> <div id="post-id-134715" data-post-id="134715" class="post answer   "> <div class="vote-buttons"> <div id="answer-img-upvote-134715" class="answer-img-upvote post-vote upvote"> </div> <div id="answer-vote-number-134715" class="vote-number" title="current number of votes">1</div> <div id="answer-img-downvote-134715" class="answer-img-downvote post-vote downvote"> </div> <script type="text/javascript">
+    askbot['functions']['renderPostVoteButtons']('answer', '134715');
+</script> <div id="answer-img-accept-134715" class="answer-img-accept" title="mark this answer as correct (click again to undo)"></div> </div> <div class="post-content"> <div class="post-body"> <div class="js-editable-hide-post-body-134715"> <div class="post-update-info-container"> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://askbot.fedoraproject.org/en/answers/134715/revisions/"><strong>
+    
+        
+        answered <abbr class="timeago" title="2019-04-04 04:46:24 -0500" style="display: inline;">Apr 4 '19</abbr> </strong></a> </p> <div class="user-card"> <a class="js-avatar-box" href="https://askbot.fedoraproject.org/en/users/30480/hacrot3000/"><img class="js-avatar gravatar" width="32" height="32" src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/nophoto.png" title="hacrot3000" alt="hacrot3000 gravatar image" style="max-width: 685px; height: auto;"></a> <div class="user-info"> <a href="https://askbot.fedoraproject.org/en/users/30480/hacrot3000/">hacrot3000</a> <br> <span class="reputation-score">21</span> <span class="badges" title="hacrot3000 has one silver badge and 2 bronze badges"> <span class="badge2">●</span><span class="badgecount">1</span> <span class="badge3">●</span><span class="badgecount">2</span> </span> </div> </div> </div> </div> </div> <div class="js-editable" id="js-post-body-134715" data-get-text-url="/en/s/get-post-body/?post_id=134715" data-save-text-url="/en/s/set-post-body/?post_id=134715" data-save-text-param-name="body_text" data-validated-text-param-name="body_html" data-min-lines="10" data-editor-type="markdown" data-validator="askbot.validators.answerValidator"><div class="js-error"></div> <div class="js-editable-content"><p>I tried with my Fedora 29 and it cannot compile vmmon and vmnet. 
+I have to clone new source code by run below command:</p> <blockquote> <p>git clone -b workstation-15.0.2 <a href="https://github.com/mkubecek/vmware-host-modules.git">https://github.com/mkubecek/vmware-ho...</a></p> </blockquote> <p>Then replace two vmmon.tar and vmnet.tar to make vmware works.</p> </div><div style="display: none;"><div><div class="clearfix"></div><div class="wmd-container"><div id="wmd-button-bar-3" class="wmd-panel"></div><textarea id="editor-3"></textarea><pre class="mirror"></pre><div class="on-state wmd-previewer-toggle">Preview: (hide)</div><div id="previewer-3" class="wmd-preview"></div></div></div></div> <div class="js-editable-controls"><button style="display: none;">save</button><button style="display: none;">cancel</button></div> </div> </div> <div class="answer-controls post-controls"> </div> <h2 class="comment-title">Comments</h2><div class="clean"></div><div class="comments ordering-forward" data-parent-post-type="answer" data-parent-post-id="134715"><div class="content"><div id="post-id-134885" class="comment js-comment" data-post-id="134885"><div class="comment-votes"><div id="comment-img-upvote-134885" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '134885');
+            </script></div><div class="comment-content"><div class="comment-body"><p>After compilation of the libraries, it's necessary to do "modprobe vmmon" and "modprobe vmnet", then launch as root  "vmware-netcfg" to reconfigure all network interfaces</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://askbot.fedoraproject.org/en/users/17725/andrea76/"><img class="js-avatar gravatar" width="16" height="16" src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/nophoto.png" title="andrea76" alt="andrea76 gravatar image"></a><a class="author" href="https://askbot.fedoraproject.org/en/users/17725/andrea76/">andrea76</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2019-04-08 06:36:29 -0500" style="display: inline;">Apr 8 '19</abbr>
+    )</span><a id="post-134885-edit" class="js-edit" title="click to edit this comment">edit</a></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('134885');
+    </script></div><div class="controls"><a class="js-open-editor-btn">add a comment</a></div></div> </div> <div class="clean"></div> </div> <div class="clean"></div> <a name="132729"></a> <div id="post-id-132729" data-post-id="132729" class="post answer   "> <div class="vote-buttons"> <div id="answer-img-upvote-132729" class="answer-img-upvote post-vote upvote"> </div> <div id="answer-vote-number-132729" class="vote-number" title="current number of votes">0</div> <div id="answer-img-downvote-132729" class="answer-img-downvote post-vote downvote"> </div> <script type="text/javascript">
+    askbot['functions']['renderPostVoteButtons']('answer', '132729');
+</script> <div id="answer-img-accept-132729" class="answer-img-accept" title="mark this answer as correct (click again to undo)"></div> </div> <div class="post-content"> <div class="post-body"> <div class="js-editable-hide-post-body-132729"> <div class="post-update-info-container"> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://askbot.fedoraproject.org/en/answers/132729/revisions/"><strong>
+    
+        
+        answered <abbr class="timeago" title="2019-02-06 07:44:01 -0500" style="display: inline;">Feb 6 '19</abbr> </strong></a> </p> <div class="user-card"> <a class="js-avatar-box" href="https://askbot.fedoraproject.org/en/users/30039/mark_the_python/"><img class="js-avatar gravatar" width="32" height="32" src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/nophoto.png" title="mark_the_python" alt="mark_the_python gravatar image" style="max-width: 685px; height: auto;"></a> <div class="user-info"> <a href="https://askbot.fedoraproject.org/en/users/30039/mark_the_python/">mark_the_python</a> <br> <span class="reputation-score">1</span> <span class="badges" title=""> </span> </div> </div> </div> </div> </div> <div class="js-editable" id="js-post-body-132729" data-get-text-url="/en/s/get-post-body/?post_id=132729" data-save-text-url="/en/s/set-post-body/?post_id=132729" data-save-text-param-name="body_text" data-validated-text-param-name="body_html" data-min-lines="10" data-editor-type="markdown" data-validator="askbot.validators.answerValidator"><div class="js-error"></div> <div class="js-editable-content"><p>Christian Bueno's answer was very solid, worked for me! I changed the dnf install kernel-headers kernel-devel step to
+sudo rpm -i kernel-devel-4.18.16-300.fc29.x86_64.rpm
+I downloaded this rpm here 
+<a href="https://fedora.pkgs.org/29/fedora-x86_64/kernel-devel-4.18.16-300.fc29.x86_64.rpm.html">https://fedora.pkgs.org/29/fedora-x86...</a></p> </div><div style="display: none;"><div><div class="clearfix"></div><div class="wmd-container"><div id="wmd-button-bar-4" class="wmd-panel"></div><textarea id="editor-4"></textarea><pre class="mirror"></pre><div class="on-state wmd-previewer-toggle">Preview: (hide)</div><div id="previewer-4" class="wmd-preview"></div></div></div></div> <div class="js-editable-controls"><button style="display: none;">save</button><button style="display: none;">cancel</button></div> </div> </div> <div class="answer-controls post-controls"> </div> <div class="comments empty ordering-forward" data-parent-post-type="answer" data-parent-post-id="132729"><div class="content"></div><div class="controls"><a class="js-open-editor-btn">add a comment</a></div></div> </div> <div class="clean"></div> </div> <div class="clean"></div> <a name="134996"></a> <div id="post-id-134996" data-post-id="134996" class="post answer   "> <div class="vote-buttons"> <div id="answer-img-upvote-134996" class="answer-img-upvote post-vote upvote"> </div> <div id="answer-vote-number-134996" class="vote-number" title="current number of votes">0</div> <div id="answer-img-downvote-134996" class="answer-img-downvote post-vote downvote"> </div> <script type="text/javascript">
+    askbot['functions']['renderPostVoteButtons']('answer', '134996');
+</script> <div id="answer-img-accept-134996" class="answer-img-accept" title="mark this answer as correct (click again to undo)"></div> </div> <div class="post-content"> <div class="post-body"> <div class="js-editable-hide-post-body-134996"> <div class="post-update-info-container"> <div class="post-update-info"> <p style="line-height:12px;"> <a href="https://askbot.fedoraproject.org/en/answers/134996/revisions/"><strong>
+    
+        
+        answered <abbr class="timeago" title="2019-04-11 05:36:35 -0500" style="display: inline;">Apr 11 '19</abbr> </strong></a> </p> <div class="user-card"> <a class="js-avatar-box" href="https://askbot.fedoraproject.org/en/users/30592/askmarcin/"><img class="js-avatar gravatar" width="32" height="32" src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/nophoto.png" title="askmarcin" alt="askmarcin gravatar image" style="max-width: 685px; height: auto;"></a> <div class="user-info"> <a href="https://askbot.fedoraproject.org/en/users/30592/askmarcin/">askmarcin</a> <br> <span class="reputation-score">1</span> <span class="badges" title=""> </span> </div> </div> </div> </div> </div> <div class="js-editable" id="js-post-body-134996" data-get-text-url="/en/s/get-post-body/?post_id=134996" data-save-text-url="/en/s/set-post-body/?post_id=134996" data-save-text-param-name="body_text" data-validated-text-param-name="body_html" data-min-lines="10" data-editor-type="markdown" data-validator="askbot.validators.answerValidator"><div class="js-error"></div> <div class="js-editable-content"><p>There is problem with VMware-player-15.0.4</p> <ul> <li>Fedora 29</li> <li>5.0.6-200.fc29.x86_64</li> <li>kernel-devel-5.0.6-200.fc29.x86_6</li> <li>kernel-headers-5.0.6-200.fc29.x86_64</li> <li>elfutils-libelf-devel-0.176-1.fc29.x86_64</li> </ul> <pre>2019-04-11T11:05:05.464+02:00| host-5867| I125: Setting destination path for vmnet to "/lib/modules/5.0.6-200.fc29.x86_64/misc/vmnet.ko".
+2019-04-11T11:05:05.464+02:00| host-5867| I125: Extracting the vmnet source from "/usr/lib/vmware/modules/source/vmnet.tar".
+2019-04-11T11:05:05.472+02:00| host-5867| I125: Successfully extracted the vmnet source.
+2019-04-11T11:05:05.472+02:00| host-5867| I125: Building module with command "/usr/bin/make -j4 -C /tmp/modconfig-1kH76E/vmnet-only auto-build HEADER_DIR=/lib/modules/5.0.6-200.fc29.x86_64/build/include CC=/bin/gcc IS_GCC_3=no"
+2019-04-11T11:05:07.699+02:00| host-5867| W115: Failed to build vmnet.  Failed to execute the build command.</pre> </div><div style="display: none;"><div><div class="clearfix"></div><div class="wmd-container"><div id="wmd-button-bar-5" class="wmd-panel"></div><textarea id="editor-5"></textarea><pre class="mirror"></pre><div class="on-state wmd-previewer-toggle">Preview: (hide)</div><div id="previewer-5" class="wmd-preview"></div></div></div></div> <div class="js-editable-controls"><button style="display: none;">save</button><button style="display: none;">cancel</button></div> </div> </div> <div class="answer-controls post-controls"> </div> <h2 class="comment-title">Comments</h2><div class="clean"></div><div class="comments ordering-forward" data-parent-post-type="answer" data-parent-post-id="134996"><div class="content"><div id="post-id-135353" class="comment js-comment" data-post-id="135353"><div class="comment-votes"><div id="comment-img-upvote-135353" class="upvote js-score"></div><script type="text/javascript">
+                askbot['functions']['renderPostVoteButtons']('comment', '135353');
+            </script></div><div class="comment-content"><div class="comment-body"><p>For Fedora 29 kernel 5.0.6 and 5.0.7 use branch workstation-15.0.3-test</p><pre class="prettyprint"><code><span class="pln">make
+make install
+make tarballs
+sudo cp </span><span class="pun">*.</span><span class="pln">tar </span><span class="pun">/</span><span class="pln">usr</span><span class="pun">/</span><span class="pln">lib</span><span class="pun">/</span><span class="pln">vmware</span><span class="pun">/</span><span class="pln">modules</span><span class="pun">/</span><span class="pln">source</span><span class="pun">/</span><span class="pln">
+sudo vmware</span><span class="pun">-</span><span class="pln">modconfig </span><span class="pun">--</span><span class="pln">console </span><span class="pun">--</span><span class="pln">install</span><span class="pun">-</span><span class="pln">all</span></code></pre><p>here</p></div><div class="comment-controls"><a class="js-avatar-box" href="https://askbot.fedoraproject.org/en/users/30698/guachex/"><img class="js-avatar gravatar" width="16" height="16" src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/nophoto.png" title="guachex" alt="guachex gravatar image"></a><a class="author" href="https://askbot.fedoraproject.org/en/users/30698/guachex/">guachex</a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2019-04-22 15:44:27 -0500" style="display: inline;">Apr 23 '19</abbr>
+    )</span><a id="post-135353-edit" class="js-edit" title="click to edit this comment">edit</a></div></div></div><script type="text/javascript">
+        askbot['functions']['hideConvertLinks']();
+        askbot['functions']['renderPostControls']('135353');
+    </script></div><div class="controls"><a class="js-open-editor-btn">add a comment</a></div></div> </div> <div class="clean"></div> </div> <div class="clean"></div> <div class="pager"> </div> <div class="clean"></div> <div style="clear:both"></div> </div> <div id="ContentRight"> <div class="box vote-buttons"> <h2>Question Tools</h2> <button class="js-follow-question button large off-state" data-is-on="false" data-off-prompt-text="Unfollow" data-on-prompt-text="Follow" data-on-state-text="Following" data-off-state-text="Follow" data-toggle-url="/en/s/toggle-follow-question/">Follow</button> <div class="clearfix"></div> <div class="js-question-follower-count">
+        
+        
+            2 followers
+        
+    </div> <div class="notify-sidebar"> <p class="rss"> <a href="https://askbot.fedoraproject.org/en/feeds/question/131006/" title="subscribe to the rss feed">subscribe to rss feed</a> </p> </div> </div> <div class="clearfix"></div> <div class="box statsWidget"> <div class="clearfix"></div> <h2>Stats</h2> <p>
+        Asked: <strong> <abbr class="timeago" title="2018-12-19 21:57:09 -0500" style="display: inline;">Dec 20 '18</abbr> </strong> </p> <p> 
+        Seen: <strong>6,155 times</strong> </p> <p>
+        Last updated: <strong title="2019-04-04 04:46:24.988161">Apr 04</strong> </p> </div> <div class="box"> <h2>Related questions</h2> <div class="questions-related"> <p> <a href="https://askbot.fedoraproject.org/en/question/112804/how-to-use-jar-files/">How to use jar files</a> </p> <p> <a href="https://askbot.fedoraproject.org/en/question/119343/please-help-me/">please help me ,</a> </p> <p> <a href="https://askbot.fedoraproject.org/en/question/129141/slack-not-running-on-fedora-29/">Slack not running on Fedora 29</a> </p> <p> <a href="https://askbot.fedoraproject.org/en/question/114780/uml-drawing-app-on-fedora/">uml drawing app on Fedora?</a> </p> <p> <a href="https://askbot.fedoraproject.org/en/question/101795/chromium-beta-channel/">Chromium Beta Channel</a> </p> <p> <a href="https://askbot.fedoraproject.org/en/question/124422/v4l2loopback-install/">v4l2loopback install</a> </p> <p> <a href="https://askbot.fedoraproject.org/en/question/128861/scheduling-updates-dnf/">Scheduling updates dnf</a> </p> <p> <a href="https://askbot.fedoraproject.org/en/question/119802/right-drivers-for-t480-with-mx150/">Right drivers for T480 with mx150</a> </p> <p> <a href="https://askbot.fedoraproject.org/en/question/135179/discourse-installation/">Discourse installation</a> </p> <p> <a href="https://askbot.fedoraproject.org/en/question/109238/cant-access-wifi/">Can't access WiFi</a> </p> </div> </div> </div> </div> <!-- template footer.html --> <div id="ground"> <div class="content-wrapper"> <div class="copyright"> <a href="http://creativecommons.org/licenses/by-sa/3.0/"> <img class="license-logo" src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/cc-by-sa.png" title="cc-by-sa" alt="cc-by-sa"> </a>
+                
+                Ask Fedora is community maintained and Red Hat or Fedora Project is not responsible for content. Content on this site is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA 3.0</a> license.
+
+            </div> <div class="footer-links"> <a href="https://askbot.fedoraproject.org/en/about/">about</a><span class="link-separator"> |</span> <a href="https://askbot.fedoraproject.org/en/faq/">faq</a><span class="link-separator"> |</span> <a href="https://askbot.fedoraproject.org/en/help/" title="help">help</a> <span class="link-separator"> |</span> <a href="https://askbot.fedoraproject.org/en/privacy/">privacy policy</a><span class="link-separator"> |</span> <a href="https://askbot.fedoraproject.org/en/terms/">terms of service</a> </div> <div class="powered-link"> <a href="http://askbot.com/" target="_blank">
+                Powered by Askbot version 0.10.2
+            </a> </div> <div class="clean"></div> </div> </div> <!-- end template footer.html --> <div id="no-javascript"> <noscript class="noscript" style="padding: 0px; background-color: transparent;">
+        Please note: Ask Fedora requires javascript to work properly, please enable javascript in your browser, <a href="https://www.google.com/support/bin/answer.py?answer=23852">here is how</a> </noscript> <script type="text/javascript">
+        //IE fix to hide the red margin
+        var noscript = document.getElementsByTagName('noscript')[0];
+        noscript.style.padding = '0px';
+        noscript.style.backgroundColor = 'transparent';
+    </script> </div> <script type="text/javascript">
+    askbot['urls']['mark_read_message'] = '/en/s/messages/markread/';
+    askbot['urls']['get_tags_by_wildcard'] = '/en/s/get-tags-by-wildcard/';
+    askbot['urls']['get_tag_list'] = '/en/s/get-tag-list/';
+    askbot['urls']['follow_user'] = '/followit/follow/user/{{userId}}/';
+    askbot['urls']['unfollow_user'] = '/followit/unfollow/user/{{userId}}/';
+    askbot['urls']['user_signin'] = '/en/account/signin/';
+    askbot['urls']['getEditor'] = '/en/s/get-editor/';
+    
+        askbot['urls']['translateUrl'] = '/en/s/translate-url/';
+    
+    askbot['urls']['apiGetQuestions'] = '/en/s/api/get_questions/';
+    askbot['urls']['ask'] = '/en/questions/ask/';
+	askbot['urls']['questions'] = '/en/questions/';
+    askbot['settings']['groupsEnabled'] = false;
+    askbot['settings']['static_url'] = '/m/';
+    askbot['settings']['minSearchWordLength'] = 3;
+    askbot['settings']['mathjaxEnabled'] = false;
+    askbot['settings']['sharingSuffixText'] = '#AskFedora';
+    askbot['settings']['errorPlacement'] = 'after-label';
+    askbot['data']['maxCommentLength'] = 600;
+    askbot['settings']['editorType'] = 'markdown';
+    
+    askbot['settings']['commentsEditorType'] = 'rich\u002Dtext';
+    askbot['messages']['askYourQuestion'] = 'Ask Your Question';
+    askbot['messages']['acceptOwnAnswer'] = 'accept or unaccept your own answer';
+    askbot['messages']['followQuestions'] = 'follow questions';
+    
+        askbot['settings']['allowedUploadFileTypes'] = [
+            "jpg", "jpeg", "gif", "bmp", "png", "tiff"
+        ];
+    
+    askbot['data']['haveFlashNotifications'] = false;
+    askbot['data']['activeTab'] = 'questions';
+    askbot['settings']['csrfCookieName'] = 'af_csrftoken';
+    
+        askbot['data']['searchUrl'] = '';
+    
+</script> <form name="scroll-pos-form"><input id="scroll-mem" type="text" style="display: none;"></form> <script type="text/javascript" src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/aac942251518.js"></script> <script type="text/javascript">
+    /*<![CDATA[*/
+    $('.mceStatusbar').remove();//a hack to remove the tinyMCE status bar
+    $(document).ready(function(){
+        // focus input on the search bar endcomment
+        var activeTab = askbot['data']['activeTab'];
+        if (inArray(activeTab, ['users', 'questions', 'tags', 'badges'])) {
+            var searchInput = $('#keywords');
+        } else if (activeTab === 'ask') {
+            var searchInput = $('#id_title');
+        } else {
+            var searchInput = undefined;
+            animateHashes();
+        }
+
+        var wasScrolled = $('#scroll-mem').val();
+        if (searchInput && !wasScrolled) {
+            searchInput.focus();
+            putCursorAtEnd(searchInput);
+        }
+
+        var haveFullTextSearchTab = inArray(activeTab, ['questions', 'badges', 'ask']);
+        var haveUserProfilePage = $('body').hasClass('user-profile-page');
+        if ((haveUserProfilePage || haveFullTextSearchTab) && searchInput && searchInput.length) {
+            var search = new FullTextSearch();
+            askbot['controllers'] = askbot['controllers'] || {};
+            askbot['controllers']['fullTextSearch'] = search;
+            search.setSearchUrl(askbot['data']['searchUrl']);
+            if (activeTab === 'ask') {
+                search.setAskButtonEnabled(false);
+            }
+            search.decorate(searchInput);
+        } else if (activeTab === 'tags') {
+            var search = new TagSearch();
+            search.decorate(searchInput);
+        }
+
+        if (askbot['data']['userIsAdminOrMod']) {
+            $('body').addClass('admin');
+        }
+        if (askbot['settings']['groupsEnabled']) {
+            askbot['urls']['add_group'] = "/en/s/add-group/";
+            var group_dropdown = new GroupDropdown();
+            $('.groups-dropdown').append(group_dropdown.getElement());
+        }
+        var userRep = $('#userToolsNav .reputation');
+        if (userRep.length) {
+            var showPermsTrigger = new ShowPermsTrigger();
+            showPermsTrigger.decorate(userRep);
+        }
+    });
+    if (askbot['data']['haveFlashNotifications']) {
+        $('#validate_email_alert').click(function(){notify.close(true)})
+        notify.show();
+    }
+
+    var langNav = $('.lang-nav');
+    if (langNav.length) {
+        var nav = new LangNav();
+        nav.decorate(langNav);
+    }
+    /*]]>*/
+</script> <div class="js-templates" style="display: none;"><div id="post-id-0" class="comment js-comment" data-post-id="0"><div class="comment-votes"><div id="comment-img-upvote-0" class="upvote js-score"></div></div><div class="comment-content"><div id="post-0-delete" class="comment-delete"><span class="js-delete-icon" title="delete this comment"></span></div><div class="comment-body"></div><div class="comment-controls"><a class="js-avatar-box" href="https://askbot.fedoraproject.org/en/question/131006/how-install-vmware-workstation-player-1502-on-fedora-29-host/"><img class="js-avatar gravatar" width="16" height="16" src="https://askbot.fedoraproject.org/en/question/131006/how-install-vmware-workstation-player-1502-on-fedora-29-host/" title="" alt=" gravatar image"></a><a class="author" href="https://askbot.fedoraproject.org/en/question/131006/how-install-vmware-workstation-player-1502-on-fedora-29-host/"></a><span class="age">&nbsp;(
+    
+        <abbr class="timeago" title="2019-10-06 03:22:24 -0500">2019-10-06 03:22:24 -0500</abbr>
+    )</span><a id="post-0-edit" class="js-edit">edit</a><form action="https://askbot.fedoraproject.org/en/s/comment/convert/" method="POST" accept-charset="utf-8" class="convert-comment"><input type="hidden" name="csrfmiddlewaretoken" value="None"><input type="hidden" value="0" name="comment_id"><input type="submit" value="convert to answer"></form></div></div></div><div class="js-simple-editor"><textarea></textarea><pre class="mirror"></pre></div><div class="js-tag  js-deletable-tag"><a class="js-tag-name" rel="tag" href="https://askbot.fedoraproject.org/en/questions/scope:all/sort:activity-desc/tags:none/page:1/" data-tag-name="none">none</a><span class="js-delete-icon">×</span></div></div> <script type="text/javascript">
+        
+        askbot['urls']['postComments'] = '/en/s/post_comments/';
+        askbot['urls']['editComment'] = '/en/s/edit_comment/';
+        askbot['urls']['deleteComment'] = '/en/s/comment/delete/';
+        askbot['urls']['convertComment'] = '/en/s/comment/convert/';
+        askbot['urls']['getComment'] = '/en/s/comment/get-text/';
+        askbot['urls']['saveDraftAnswer'] = '/en/s/save-draft-answer/';
+        askbot['urls']['vote_url'] = '/en/s/vote'
+        askbot['urls']['user_signin'] = '/en/account/signin/';
+        askbot['urls']['upvote_comment'] = '/en/s/comment/upvote/';
+        askbot['urls']['delete_post'] = '/en/s/post/delete/';
+        askbot['urls']['get_html_template'] = '/en/s/get-html-template/';
+        askbot['urls']['getGroupsList'] = '/en/s/get-groups-list/';
+        askbot['urls']['publishAnswer'] = '/en/s/answer/publish/';
+        askbot['urls']['apiV1Questions'] = '/en/api/v1/questions/';
+        askbot['urls']['mergeQuestions'] = '/en/s/merge-questions/';
+        
+        askbot['data']['questionAuthorId'] = 20066;
+        askbot['data']['answersSortTab'] = 'votes';
+        askbot['data']['questionId'] = 131006;
+        askbot['data']['threadSlug'] = 'how-install-vmware-workstation-player-1502-on-fedora-29-host';
+        askbot['messages']['addComment'] = 'add a comment';
+        askbot['messages']['userNamePrompt'] = 'User name:';
+        askbot['messages']['userEmailPrompt'] = 'Email address:';
+        askbot['messages']['mergeQuestions'] = 'Merge duplicate questions';
+        askbot['messages']['enterDuplicateQuestionId'] = 'Enter duplicate question ID';
+        
+            askbot['messages']['readOnlyMessage'] = "AskFedora has moved to a new platform at \u003Ca href\u003D\u0022https://ask.fedoraproject.org\u0022\u003Eask.fedoraproject.org\u003C/a\u003E. This site is now read\u002Donly.";
+        
+        askbot['settings']['saveCommentOnEnter'] = false;
+        askbot['settings']['tagSource'] = 'category-tree';
+        askbot['settings']['enableSharingGoogle'] = true;
+        askbot['settings']['enableEmailAlerts'] = true;
+    </script> <script type="text/javascript">
+    
+    askbot['settings']['tagsAreRequired'] = true
+    askbot['settings']['maxTagLength'] = 25;
+    askbot['messages']['maxTagLength'] = "each tag must be shorter than 25 characters";
+    askbot['settings']['maxTagsPerPost'] = 5;
+    askbot['messages']['maxTagsPerPost'] = "please use 5 tags or less";
+    askbot['messages']['tagLimits'] = "please use up to 5 tags, less than 25 characters each";
+    askbot['urls']['upload'] = '/en/s/upload/';
+    askbot['settings']['minTitleLength'] = 10;
+    askbot['settings']['minQuestionBodyLength'] = 50;
+    askbot['settings']['minAnswerBodyLength'] = 10;
+    askbot['settings']['minCommentBodyLength'] = 10;
+    askbot['settings']['tag_editor'] = '{\u0022tag_forbidden_first_chars\u0022: \u0022#\u0022, \u0022max_tag_length\u0022: 25, \u0022force_lowercase_tags\u0022: true, \u0022max_tags_per_post\u0022: 5, \u0022messages\u0022: {\u0022wrong_first_char\u0022: \u0022# is not a valid character at the beginning of tags, use only letters and numbers\u0022, \u0022wrong_chars\u0022: \u0022please use letters, numbers and characters \u005C\u0022\u002D+.#\u005C\u0022\u0022, \u0022required\u0022: \u0022tags are required\u0022}, \u0022tags_are_required\u0022: true}';
+    askbot['settings']['tinyMCEPlugins'] = JSON.parse('[]');
+</script> <script type="text/javascript">
+    (function() {
+        askbot['settings']['commentsReversed'] = false;
+        //make images always fit the screen
+        var images = $('.question-page .post-body img');
+        //these breakpoints must match those in css
+        //for explanation see utils.js:LimitedWidthImage
+        var breakpoints = [
+            [980, undefined],
+            [800, 55]
+        ];
+        var maxWidth = 685;
+        images.each(function(idx, item) {
+            var img = new LimitedWidthImage(breakpoints, maxWidth);
+            img.decorate($(item));
+        });
+    })();
+</script> <script type="text/javascript" src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/2ec153a4cd31.js"></script> <script type="text/javascript">
+    // define reputation needs for comments
+    askbot['urls']['getPostHtml'] = '/en/s/get-post-html/';
+    askbot['urls']['retag'] = "/en/s/questions/131006/retag/";
+
+    
+    
+    askbot['settings']['commentAvatarSize'] = 16;
+
+    $(document).ready(function(){
+        $("#nav_questions").attr('className',"on");
+        $("#" + askbot['data']['answersSortTab']).attr('className',"on");
+
+        Vote.init(
+            askbot['data']['questionId'],
+            askbot['data']['threadSlug'],
+            askbot['data']['questionAuthorId'],
+            askbot['data']['userId']
+        );
+
+        if ((askbot['data']['threadIsClosed'] === false) && askbot['data']['userIsAuthenticated']) {
+            initEditor();
+        }
+
+        lanai.highlightSyntax();
+        $('#btLogin').bind('click', function(){
+            window.location.href='/en/account/signin/';
+        });
+        if (window.location.hash === 'fmanswer'){
+            $('#fmanswer textarea').focus();
+        }
+
+        if (askbot['settings']['enableSharingGoogle']) {
+            $.getScript("//apis.google.com/js/plusone.js");
+        }
+
+        if (askbot['data']['userId'] === askbot['data']['questionAuthorId']) {
+            $("#fmanswer_button").click(function() {
+                $("#fmanswer").show();
+                $("#fmanswer_button").hide();
+            });
+        }
+
+        if (askbot['data']['userIsAuthenticated']) {
+            var draftHandler = new DraftAnswer();
+            draftHandler.setThreadId(33779);
+            draftHandler.decorate($('body'));
+        }
+
+        var expanders = $('.expander');
+        expanders.each(function(idx, item) {
+            var expanderElement = $(item);
+            var post = expanderElement.closest('.post,.comment');
+            if (post.length === 1) {
+                var expander = new PostExpander();
+                expander.setPostId(post.data('postId'));
+                expander.decorate(expanderElement);
+            }
+        });
+
+        var followBtn = $('.js-follow-question');
+        if (followBtn.length) {
+            var toggle = new AjaxToggle();
+            toggle.setPostData({'question_id': 131006 });
+            toggle.decorate(followBtn);
+            followBtn.bind('askbot.two-state-toggle.success', updateQuestionFollowerCount);
+        }
+    });
+
+    $(window).bind('hashchange', animate_hashes);
+
+    function animate_hashes(){
+      var id_value = window.location.hash;
+      if (id_value != ""){
+        var previous_color = $(id_value).css('background-color');
+        $(id_value).css('backgroundColor', '#FFF8C6');
+        $(id_value).animate(
+            {backgroundColor: '#ff7f2a'}, 1000
+        ).animate({backgroundColor: '#FFF8C6'}, 1000, function(){
+            $(id_value).css('backgroundColor', previous_color);
+        });
+      }
+    }
+
+
+    function initEditor(){
+        $('#editor').TextAreaResizer();
+        //highlight code synctax when editor has new text
+        $("#editor").typeWatch({highlight: false, wait: 3000,
+                         captureLength: 5, callback: lanai.highlightSyntax});
+
+        var display = true;
+        var txt = "[hide preview]";
+        $('#pre-collapse').text(txt);
+        $('#pre-collapse').bind('click', function(){
+            txt = display ? "[show preview]" : "[hide preview]";
+            display = !display;
+            $('#previewer').toggle();
+            $('#pre-collapse').text(txt);
+        });
+        var formElement = $('.js-answer-form');
+        if (formElement.length) {
+            var answerForm = new AnswerForm();
+            answerForm.decorate(formElement);
+        }
+    }
+</script> <script type="text/javascript">
+    askbot['functions'] = askbot['functions'] || {};
+    askbot['functions']['initCategoryTree'] = function(){
+        var sel_elems = $('.category-selector');
+        if (sel_elems.length > 0) {
+            var selector = new CategorySelector();
+            selector.setData(JSON.parse('[[\u0022dummy\u0022, [[\u0022howto\u0022, [[\u0022fedora\u002Dwebsites\u0022, [[\u0022badges.fedoraproject.org\u0022, []], [\u0022fedoraproject\u002Dwiki\u0022, []], [\u0022getfedora.org\u0022, []], [\u0022pagure.io\u0022, []]]], [\u0022installing\u002Dfedora\u0022, [[\u0022anaconda\u0022, []], [\u0022arm\u0022, []], [\u0022cloud\u002Dbase\u002Dimage\u0022, []], [\u0022disks\u0022, []], [\u0022dualboot\u0022, []], [\u0022fedora\u002Datomic\u002Dhost\u0022, []], [\u0022fedora\u002Dserver\u0022, []], [\u0022fedora\u002Dworkstation\u0022, []], [\u0022first\u002Dinstall\u0022, []], [\u0022kickstart\u0022, []], [\u0022laptops\u0022, []], [\u0022livecd\u0022, []], [\u0022livedvd\u0022, []], [\u0022liveusb\u0022, []], [\u0022partitioning\u0022, []], [\u0022passwords\u0022, []], [\u0022spins\u0022, []], [\u0022usb\u0022, []]]], [\u0022installing\u002Dsoftware\u0022, [[\u0022compiling\u0022, []], [\u0022dnf\u0022, []], [\u0022fedora\u002Dpackages\u0022, []], [\u0022gnome\u002Dsoftware\u0022, []], [\u0022rpm\u0022, []], [\u0022third\u002Dparty\u0022, []], [\u0022yum\u0022, []]]], [\u0022packaging\u0022, [[\u0022bodhi\u0022, []], [\u0022dist\u002Dgit\u0022, []], [\u0022koji\u0022, []], [\u0022specfile\u0022, []]]], [\u0022systems\u002Dadministration\u0022, [[\u0022backups\u0022, []], [\u0022cockpit\u0022, []], [\u0022command\u002Dline\u0022, []], [\u0022containers\u0022, []], [\u0022filesystems\u0022, []], [\u0022firewall\u0022, []], [\u0022httpd\u0022, []], [\u0022java\u0022, []], [\u0022lamp\u0022, []], [\u0022logs\u0022, []], [\u0022lvm\u0022, []], [\u0022networking\u0022, []], [\u0022performance\u002Dtuning\u0022, []], [\u0022printers\u0022, []], [\u0022samba\u0022, []], [\u0022security\u0022, []], [\u0022selinux\u0022, []], [\u0022ssh\u0022, []], [\u0022storage\u0022, []], [\u0022system\u002Dservices\u0022, []], [\u0022systemd\u0022, []], [\u0022virtualization\u0022, []]]], [\u0022upgrading\u002Dfedora\u0022, [[\u0022dnf\u002Dsystem\u002Dupgrade\u0022, []], [\u0022fedup\u0022, []], [\u0022gnome\u002Dsoftware\u0022, []]]], [\u0022using\u002Dfedora\u0022, [[\u0022audio\u0022, []], [\u0022bash\u0022, []], [\u0022cinnamon\u0022, []], [\u0022command\u002Dline\u0022, []], [\u0022containers\u0022, []], [\u0022dual\u002Dboot\u0022, []], [\u0022fonts\u0022, []], [\u0022gdm\u0022, []], [\u0022gnome\u0022, []], [\u0022gnome\u002Dshell\u0022, []], [\u0022java\u0022, []], [\u0022kde\u0022, []], [\u0022keyboard\u002Dlayout\u0022, []], [\u0022kvm\u0022, []], [\u0022nautilus\u0022, []], [\u0022php\u0022, []], [\u0022printers\u0022, []], [\u0022programming\u0022, []], [\u0022samba\u0022, []], [\u0022security\u0022, []], [\u0022ssh\u0022, []], [\u0022terminal\u0022, []], [\u0022usb\u0022, []], [\u0022video\u0022, []], [\u0022virtualbox\u0022, []], [\u0022virtualization\u0022, []], [\u0022vpn\u0022, []], [\u0022xfce\u0022, []]]]]], [\u0022meta\u0022, [[\u0022answering\u002Dquestions\u0022, []], [\u0022ask\u002Dfedora\u002Dcommunity\u0022, []], [\u0022ask\u002Dfedora\u002Dpolicies\u0022, []], [\u0022ask\u002Dfedora\u002Dproblems\u0022, []], [\u0022ask\u002Dfedora\u002Dwebsite\u0022, []], [\u0022asking\u002Dquestions\u0022, []]]], [\u0022please\u002Dexplain\u0022, [[\u0022fedora\u002Dcommunity\u0022, []], [\u0022fedora\u002Dpolicies\u0022, []], [\u0022history\u0022, []], [\u0022linux\u002Dbasics\u0022, []], [\u0022software\u0022, []]]], [\u0022troubleshooting\u0022, [[\u0022booting\u0022, [[\u0022dracut\u0022, []], [\u0022dual\u002Dboot\u0022, []], [\u0022efi\u0022, []], [\u0022grub2\u0022, []], [\u0022kernel\u0022, []], [\u0022livecd\u0022, []], [\u0022liveusb\u0022, []], [\u0022plymouth\u0022, []]]], [\u0022drivers\u0022, [[\u0022amd\u0022, []], [\u0022audio\u0022, []], [\u0022bluetooth\u0022, []], [\u0022broadcom\u0022, []], [\u0022graphics\u0022, []], [\u0022intel\u0022, []], [\u0022mouse\u0022, []], [\u0022network\u0022, []], [\u0022nvidia\u0022, []], [\u0022printers\u0022, []], [\u0022touchpad\u0022, []], [\u0022wifi\u0022, []]]], [\u0022hardware\u0022, [[\u0022arm\u0022, []], [\u0022audio\u0022, []], [\u0022crashes\u0022, []], [\u0022error\u002Dmessages\u0022, []], [\u0022graphics\u002Dcards\u0022, []], [\u0022keyboard\u0022, []], [\u0022laptops\u0022, []], [\u0022lcd\u0022, []], [\u0022monitor\u0022, []], [\u0022mouse\u0022, []], [\u0022network\u002Dcards\u0022, []], [\u0022network\u002Dcards\u0022, []], [\u0022printers\u0022, []], [\u0022server\u002Dhardware\u0022, []], [\u0022touchpad\u0022, []], [\u0022usb\u0022, []], [\u0022wifi\u0022, []]]], [\u0022installation\u0022, [[\u0022anaconda\u0022, []], [\u0022dual\u002Dboot\u0022, []], [\u0022error\u002Dmessages\u0022, []], [\u0022fedora\u002Datomic\u0022, []], [\u0022fedora\u002Dserver\u0022, []], [\u0022fedora\u002Dworkstation\u0022, []], [\u0022kickstart\u0022, []], [\u0022livecd\u0022, []], [\u0022livedvd\u0022, []], [\u0022liveusb\u0022, []], [\u0022network\u002Dinstall\u0022, []], [\u0022spins\u0022, []]]], [\u0022software\u0022, [[\u0022audio\u0022, []], [\u0022bash\u0022, []], [\u0022cinnamon\u0022, []], [\u0022crashes\u0022, []], [\u0022error\u002Dmessages\u0022, []], [\u0022fonts\u0022, []], [\u0022gcc\u0022, []], [\u0022gdm\u0022, []], [\u0022gnome\u0022, []], [\u0022kde\u0022, []], [\u0022kernel\u0022, []], [\u0022keyboard\u002Dlayout\u0022, []], [\u0022kvm\u0022, []], [\u0022login\u0022, []], [\u0022lxde\u0022, []], [\u0022networking\u0022, []], [\u0022neurofedora\u0022, []], [\u0022printing\u0022, []], [\u0022pulseaudio\u0022, []], [\u0022python\u0022, []], [\u0022samba\u0022, []], [\u0022samba\u0022, []], [\u0022scitech\u0022, []], [\u0022shutdown\u0022, []], [\u0022ssh\u0022, []], [\u0022terminal\u0022, []], [\u0022video\u0022, []], [\u0022virtualbox\u0022, []], [\u0022virtualization\u0022, []], [\u0022wayland\u0022, []], [\u0022wine\u0022, []], [\u0022xfce\u0022, []], [\u0022xorg\u0022, []]]]]]]]]'));
+            selector.decorate(sel_elems);
+            selector.setState('select');
+
+            var tag_editor = new TagEditor();
+            tag_editor.decorate($('.tag-editor'));
+            
+                
+                    tag_editor.addTag('vmware-workstation-15');
+                
+                    tag_editor.addTag('howto');
+                
+                    tag_editor.addTag('installing-software');
+                
+                    tag_editor.addTag('third-party');
+                
+                    tag_editor.addTag('fedora29');
+                
+            
+            selector.setSelectHandler(tag_editor.getAddTagHandler());
+            return selector;
+        }
+    };
+    askbot['functions']['initCategoryTree']();
+    askbot['urls']['add_tag_category'] = '/en/s/add-tag-category/';
+    askbot['urls']['rename_tag'] = '/en/s/rename-tag/';
+    askbot['urls']['delete_tag'] = '/en/s/delete-tag/';
+    askbot['urls']['cleanTagName'] = '/en/s/clean-tag-name/';
+</script> <script type="text/javascript">
+            for (url_name in askbot['urls']){
+                askbot['urls'][url_name] = cleanUrl(askbot['urls'][url_name]);
+            }
+        </script>  <iframe name="oauth2relay384991404" id="oauth2relay384991404" src="./How install vmware workstation player 15.0.2 on fedora 29 host - Ask Fedora_ Community Knowledge Base and Support Forum_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe></body></html>
