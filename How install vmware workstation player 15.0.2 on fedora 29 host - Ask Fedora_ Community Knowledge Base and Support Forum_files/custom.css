@@ -1,0 +1,106 @@
+#ab-main-nav a {
+color: #333333;
+background-color: #d8dfeb;
+border: 1px solid #888888;
+border-bottom: none;
+padding: 0px 12px 3px 12px;
+height: 25px;
+line-height: 30px;
+margin-right: 10px;
+font-size: 18px;
+font-weight: 100;
+text-decoration: none;
+display: block;
+float: left;
+}
+
+#ab-main-nav a.on {
+height: 24px;
+line-height: 28px;
+border-bottom: 1px solid #0a57a4;
+border-right: 1px solid #0a57a4;
+border-top: 1px solid #0a57a4;
+border-left: 1px solid #0a57a4; /*background:#A31E39; */
+background: #0a57a4;
+color: #FFF;
+font-weight: 800;
+text-decoration: none
+}
+
+#ab-main-nav a.special {
+font-size: 18px;
+color: #072b61;
+font-weight: bold;
+text-decoration: none;
+}
+
+/* tabs stuff
+.tabsA { float: right; }
+.tabsC { float: left; }
+ 
+.tabsA a.on, .tabsC a.on, .tabsA a:hover, .tabsC a:hover {
+background: #fff;
+color: #072b61;
+border-top: 1px solid #babdb6;
+border-left: 1px solid #babdb6;
+border-right: 1px solid #888a85;
+border-bottom: 1px solid #888a85;
+height: 24px;
+line-height: 26px;
+margin-top: 3px;
+}
+ 
+.tabsA a.rev.on, tabsA a.rev.on:hover {
+padding: 0px 2px 0px 7px;
+}
+ 
+.tabsA a, .tabsC a{
+background: #f9f7eb;
+border-top: 1px solid #eeeeec;
+border-left: 1px solid #eeeeec;
+border-right: 1px solid #a9aca5;
+border-bottom: 1px solid #888a85;
+color: #888a85;
+display: block;
+float: left;
+height: 20px;
+line-height: 22px;
+margin: 5px 0 0 4px;
+padding: 0 7px;
+text-decoration: none;
+}
+ 
+.tabsA .label, .tabsC .label {
+float: left;
+font-weight: bold;
+color: #777;
+margin: 8px 0 0 0px;
+}
+ 
+.tabsB a {
+background: #eee;
+border: 1px solid #eee;
+color: #777;
+display: block;
+float: left;
+height: 22px;
+line-height: 28px;
+margin: 5px 0px 0 4px;
+padding: 0 11px 0 11px;
+text-decoration: none;
+}
+
+a {
+color: #072b61;
+text-decoration: none;
+cursor: pointer;
+} */
+
+div.side-box
+{
+width:200px;
+padding:10px;
+border:3px solid #CCCCCC;
+margin:0px;
+background: -moz-linear-gradient(top, #DDDDDD, #FFFFFF);
+}
