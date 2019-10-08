@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://sls.weco.net/node/21322 -->
+<html class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="next" href="https://sls.weco.net/node/21323">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="https://sls.weco.net/files/12736015_1008649829171762_1327634692_n.jpg" type="image/jpeg">
+<link rel="up" href="https://sls.weco.net/CollectiveNote20/OS">
+<link rel="prev" href="https://sls.weco.net/node/21321">
+<meta name="Generator" content="Drupal 7 (http://drupal.org)">
+<link rel="canonical" href="https://sls.weco.net/node/21322">
+<link rel="shortlink" href="https://sls.weco.net/node/21322">
+<title>02. 作業系統結構 (System Structure) | 宅學習</title>
+<style type="text/css" media="all">
+@import url("https://sls.weco.net/modules/system/system.base.css?prnkx3");
+@import url("https://sls.weco.net/modules/system/system.menus.css?prnkx3");
+@import url("https://sls.weco.net/modules/system/system.messages.css?prnkx3");
+@import url("https://sls.weco.net/modules/system/system.theme.css?prnkx3");
+</style>
+<style type="text/css" media="all">
+@import url("https://sls.weco.net/modules/aggregator/aggregator.css?prnkx3");
+@import url("https://sls.weco.net/modules/book/book.css?prnkx3");
+@import url("https://sls.weco.net/modules/comment/comment.css?prnkx3");
+@import url("https://sls.weco.net/sites/all/modules/date/date_api/date.css?prnkx3");
+@import url("https://sls.weco.net/modules/field/theme/field.css?prnkx3");
+@import url("https://sls.weco.net/modules/node/node.css?prnkx3");
+@import url("https://sls.weco.net/modules/search/search.css?prnkx3");
+@import url("https://sls.weco.net/modules/user/user.css?prnkx3");
+@import url("https://sls.weco.net/sites/all/modules/views/css/views.css?prnkx3");
+@import url("https://sls.weco.net/sites/all/modules/ckeditor/css/ckeditor.css?prnkx3");
+</style>
+<style type="text/css" media="all">
+@import url("https://sls.weco.net/sites/all/modules/ctools/css/ctools.css?prnkx3");
+@import url("https://sls.weco.net/sites/all/modules/panels/css/panels.css?prnkx3");
+</style>
+<style type="text/css" media="all">
+@import url("https://sls.weco.net/sites/all/themes/multipurpose_zymphonies_theme/css/font-awesome.css?prnkx3");
+@import url("https://sls.weco.net/sites/all/themes/multipurpose_zymphonies_theme/css/style.css?prnkx3");
+@import url("https://sls.weco.net/sites/all/themes/multipurpose_zymphonies_theme/css/media.css?prnkx3");
+</style>
+<script async="" src="./02. 作業系統結構 (System Structure) _ 宅學習_files/analytics.js"></script><script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.google_analytics_uacct = "UA-3723078-1";
+//--><!]]>
+</script>
+<script type="text/javascript" src="./02. 作業系統結構 (System Structure) _ 宅學習_files/jquery.min.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery || document.write("<script src='/sites/all/modules/jquery_update/replace/jquery/1.10/jquery.min.js'>\x3C/script>")
+//--><!]]>
+</script>
+<script type="text/javascript" src="./02. 作業系統結構 (System Structure) _ 宅學習_files/jquery.once.js"></script>
+<script type="text/javascript" src="./02. 作業系統結構 (System Structure) _ 宅學習_files/drupal.js"></script>
+<script type="text/javascript" src="./02. 作業系統結構 (System Structure) _ 宅學習_files/zh-hant_91DyHb6mHDBZV-iE3CZ1EeonPI6DUYHE7WqiVZl2ceY.js"></script>
+<script type="text/javascript" src="./02. 作業系統結構 (System Structure) _ 宅學習_files/googleanalytics.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-3723078-1", {"cookieDomain":"auto"});ga("require", "linkid", "linkid.js");ga("require", "displayfeatures");ga("set", "page", location.pathname + location.search + location.hash);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript" src="./02. 作業系統結構 (System Structure) _ 宅學習_files/custom.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"multipurpose_zymphonies_theme","theme_token":"ThLB9QD790cWJiSmRG0MHccHp2B8i6RRFYN4Pf8irn0","js":{"0":1,"\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/1.10.2\/jquery.min.js":1,"1":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"public:\/\/languages\/zh-hant_91DyHb6mHDBZV-iE3CZ1EeonPI6DUYHE7WqiVZl2ceY.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"2":1,"sites\/all\/themes\/multipurpose_zymphonies_theme\/js\/custom.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/book\/book.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"sites\/all\/themes\/multipurpose_zymphonies_theme\/css\/font-awesome.css":1,"sites\/all\/themes\/multipurpose_zymphonies_theme\/css\/style.css":1,"sites\/all\/themes\/multipurpose_zymphonies_theme\/css\/media.css":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip","trackUrlFragments":1},"urlIsAjaxTrusted":{"\/node\/21322?destination=node\/21322":true}});
+//--><!]]>
+</script>
+<!--[if IE 8 ]>    <html class="ie8 ielt9"> <![endif]-->
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-21322 node-type-book" style="">
+    
+<!-- header -->
+
+<div id="header_wrapper">
+  <header id="header" class="clearfix">
+    <div class="top_right">
+          </div>
+    <div class="top_left">
+              <div id="logo"><a href="https://sls.weco.net/" title="首頁"><img src="./02. 作業系統結構 (System Structure) _ 宅學習_files/sls_0.jpg"></a></div>
+            <h1 id="site-title">
+        <a href="https://sls.weco.net/" title="首頁">宅學習</a>
+        <div id="site-description">SLS宅學習</div>
+      </h1>
+    </div>
+  </header>
+</div>
+
+<!-- End Header -->
+
+  <div class="slideshow">
+    <div class="menu-wrap">
+      <div class="full-wrap clearfix">
+        <nav id="main-menu" role="navigation">
+          <a class="nav-toggle" href="https://sls.weco.net/node/21322#">Navigation</a>
+          <div class="menu-navigation-container">
+            <ul class="menu"><li class="first leaf"><a href="https://sls.weco.net/" title="">首頁</a></li>
+<li class="leaf"><a href="https://sls.weco.net/CurrentSemester">課程網頁</a></li>
+<li class="leaf"><a href="https://sls.weco.net/courses_page" title="">課程社群</a></li>
+<li class="last leaf"><a href="https://sls.weco.net/CollectiveNote20" title="課程中建立的學習資源">共同筆記2.0</a></li>
+</ul>          </div>
+          <div class="clear"></div>
+        </nav>
+        <div class="region region-search">
+  <div id="block-block-4" class="block block-block">
+
+      
+  <div class="content">
+    <style>
+<!--/*--><![CDATA[/* ><!--*/
+
+#top-link { display:none; position:fixed; right:5px; bottom:5px; color:blue; font-weight:bold; text-decoration:none; border:1px solid blue; background:Lightblue; padding:10px; }
+
+/*--><!]]>*/
+</style><p><a href="https://sls.weco.net/node/21322#top" id="top-link">返回頁首</a></p>
+<script src="./02. 作業系統結構 (System Structure) _ 宅學習_files/jquery.scrollTo-1.4.2-min.js"></script><script>
+<!--//--><![CDATA[// ><!--
+
+//plugin
+jQuery.fn.topLink = function(settings) {
+	settings = jQuery.extend({
+		min: 1,
+		fadeSpeed: 200
+	}, settings);
+	return this.each(function() {
+		//listen for scroll
+		var el = $(this);
+		el.hide(); //in case the user forgot
+		$(window).scroll(function() {
+			if($(window).scrollTop() >= settings.min) {
+				el.fadeIn(settings.fadeSpeed);
+			} else {
+				el.fadeOut(settings.fadeSpeed);
+			}
+		});
+	});
+};
+
+//usage w/ smoothscroll
+$(document).ready(function() {
+	//set the link
+	$('#top-link').topLink({
+		min: 400,
+		fadeSpeed: 500
+	});
+	//smoothscroll
+	$('#top-link').click(function(e) {
+		e.preventDefault();
+		$.scrollTo(0,300);
+	});
+});
+
+//--><!]]>
+</script><script type="text/javascript" src="./02. 作業系統結構 (System Structure) _ 宅學習_files/konami.js"></script><script type="text/javascript">
+<!--//--><![CDATA[// ><!--
+
+	var konami = new Konami(); 
+	konami.load("/KonamiCode");
+
+//--><!]]>
+</script><script type="text/javascript">
+<!--//--><![CDATA[// ><!--
+
+$(document).ready(function(){
+	//Configuration Options
+	var max_width = 640; 	//Sets the max width, in pixels, for every image
+	var selector = '.content img'; 	//Sets the syntax for finding the images.  Defaults to all images.
+				//For images inside of a particular element (id="abc") or class (class="abc"),
+				//use '.abc img' or '#abc img' respectively.  Don't leave off the img tag!!!
+	//End configuration options.  You don't need to change anything below here.
+	
+	$(selector).each(function(){
+		var width = $(this).width();
+		var height = $(this).height();
+		if (width > max_width) {
+			//Set variables	for manipulation
+			var ratio = (height / width );
+			var new_width = max_width;
+			var new_height = (new_width * ratio);
+			
+			//Shrink the image and add link to full-sized image
+			$(this).height(new_height).width(new_width);
+			$(this).hover(function(){
+				$(this).attr("title", "This image has been scaled down.  Click to view the original image.")
+				$(this).css("cursor","pointer");
+				});
+			$(this).click(function(){
+				window.location = $(this).attr("src");
+				});
+		} //ends if statement
+	} //ends each function
+	);
+});
+
+//--><!]]>
+</script>  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+      </div>
+    </div>
+      </div>
+
+
+
+<div id="page-wrap">
+
+  
+  <div id="container">
+    <div class="container-wrap">
+      <div class="content-sidebar-wrap">
+        <div id="content">
+
+                      <div id="breadcrumbs">
+              <h2 class="element-invisible">You are here</h2><nav class="breadcrumb"><a href="https://sls.weco.net/">首頁</a> » <a href="https://sls.weco.net/CollectiveNote20">共同筆記 2.0</a> » <a href="https://sls.weco.net/CollectiveNote20/OS">作業系統</a> » 02. 作業系統結構 (System Structure)</nav>            </div>
+          
+          <section id="post-content" role="main">
+                                                  <h1 class="page-title">02. 作業系統結構 (System Structure)</h1>
+                                                                        <div class="region region-content">
+  <div id="block-system-main" class="block block-system">
+
+      
+  <div class="content">
+                            
+              <span class="submitted">Submitted by <a href="https://sls.weco.net/user/mei" title="檢視使用者資訊。" class="username">mei</a> on 一, 2014-01-27 15:30</span>
+      
+    
+  <div class="content node-book">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><h1><span style="font-size: 24px;">簡介</span></h1>
+<p><span style="font-size: 16px;">隨著電腦應用需求之增加，作業系統已變成龐大且複雜，其結構概念也由整體架構(Monolithic System) 改向為小單位分割架構(Partition of Small Components System)。</span></p>
+<p><span style="font-size: 16px;">整體架構之缺點為反應遲緩，任何錯誤均將禍及整體系統甚至當機，優點為設計簡易、管理方便；小單位分割架構之缺點為設計複雜，優點為反應靈巧，區隔錯誤使其不影響其他部份。</span></p>
+<h1><span style="font-size: 24px;">Operating-System Services</span></h1>
+<p><span style="font-size: 16px;">作業系統提供執行程式的環境，包含提供特定的服務給程式以及程式的使用者。不同的作業系統之間提供了不同的服務，但基本上可以歸類出幾項。</span></p>
+<p><span style="font-size: 16px;">一系列的服務用來提供使用者功能性</span></p>
+<ul><li><span style="font-size: 16px;">User Interface</span></li>
+<li><span style="font-size: 16px;">Program execution</span></li>
+<li><span style="font-size: 16px;">I/O operations</span></li>
+<li><span style="font-size: 16px;">File-system manipulation</span></li>
+<li><span style="font-size: 16px;">Communications</span></li>
+<li><span style="font-size: 16px;">Error detection</span></li>
+</ul><p><span style="font-size: 16px;">另外一系列的服務則是針對確保系統順利運作而存在</span></p>
+<ul><li><span style="font-size: 16px;">Resource allocation</span></li>
+<li><span style="font-size: 16px;">Accounting</span></li>
+<li><span style="font-size: 16px;">Protection and security</span></li>
+</ul><p><span style="font-size: 16px;">&nbsp;</span></p>
+<h1><span style="font-size: 24px;">User Operating-System Interface</span></h1>
+<p>&nbsp;</p>
+<h1><span style="font-size: 24px;">System Calls</span></h1>
+<p><span style="font-size: 16px;">系</span><span style="font-size: 16px;">統呼叫，指運行在使用者空間的程序向作業系統核心請求需要更高許可權運行的服務。 系統調用提供了用戶程序與作業系統之間的介面。大多數系統互動式操作需求在核心態執行。如設備IO操作或者進程間通信。當行程(Process)衝撞系統時，行程要求系統呼應執行是謂“系統呼叫(System Call)”。除了低階語言(如組合語言 Assembly Language)與少數高階語言之某些狀況外，為了保護系統安全，一般高階語言均不被允許直接(Directly)作系統呼叫。</span></p>
+<p><span style="font-size: 16px;">高階語言必須間接(Indirectly)作系統呼叫，亦即是在系統監視下由系統導引執行，如Java 規定格式：</span></p>
+<blockquote><p><span style="font-size: 16px;">try {x}</span><br><span style="font-size: 16px;"> catch (IOException) {y}</span></p></blockquote>
+<p><span style="font-size: 16px;">其中 x 為系統呼叫之程式碼，y 為錯誤訊息。</span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<p><span style="font-size: 16px;">系統呼叫亦如一般程式之呼叫(Subroutine Call)，可藉參數(Parameter)傳遞訊息，傳遞方法有：</span><br><span style="font-size: 16px;"> 1. 暫存器參數(By Register)如圖 2-3-1：使用者程式(User Program)將參數寫入暫存器(Register)，再由作業系統(Operating System)將參數讀取使用。因暫存器價值昂貴且反應迅速，故其優點是傳遞速度迅速；缺點是價格高，且一個暫存器只可傳遞一個參數，若參數之數量多於暫存器之數量，則將無法執行。</span></p>
+<p><span><img src="./02. 作業系統結構 (System Structure) _ 宅學習_files/2-3-1.png" alt="" width="373" height="172"><br> 圖 2-3-1</span></p>
+<p><span style="font-size: 16px;">2. 地址參數(By Address)如圖 2-3-2：如果參數量大，可將參數在記憶體之儲存地址，從使用者程式傳遞給予作業系統，作業系統再依址讀取參數使用。其優點是可執行大量參數的傳遞；缺點是速度較慢。</span></p>
+<p><span><img src="./02. 作業系統結構 (System Structure) _ 宅學習_files/2-3-2.png" alt=""> 圖 2-3-2</span></p>
+<p><span style="font-size: 16px;">3. 堆疊參數(By Stack)如圖 2-3-3：使用者程式將參數推入(Push)堆疊(Stack)，作業系統再由堆疊將参數彈出(Pop)使用。其優點是執行大量參數的傳遞，且執行步驟井然有序；缺點是速度較慢。</span></p>
+<p><span><img src="./02. 作業系統結構 (System Structure) _ 宅學習_files/2-3-3.png" alt=""><br> 圖 2-3-3</span></p>
+<h1><span style="font-size: 24px;">Types of System Calls</span></h1>
+<p><span style="font-size: 16px;">系統呼叫可分為：行程控制(Process Control)、檔案操作(File Manipulation)、裝置操作 (Device Manipulation) 、 資料維護 (Information Maintenance) 、 連線訊(Communication)。</span></p>
+<h2><span style="font-size: 16px;">一、行程控制(Process Control)系統呼叫</span></h2>
+<p><span style="font-size: 16px;">如前述，CPU 抓取主記憶體(Main Memory)的程式(Program)並執行其工作(Job)如此是謂“行程(Process)”。執行過程中，凡遇行程衝撞系統的動作，均須作系統呼叫，由具有安全性的即定程序引導執行。行程作系統呼叫的項目有：</span><br><span style="font-size: 16px;"> 1. 行程的起動與終止：</span><br><span style="font-size: 16px;"> (a)呼叫作業系統執行載入(Load)，將程式指令從主記憶體抓取至 CPU 執行(Execute)之；</span><br><span style="font-size: 16px;"> (b)呼叫作業系統執行建立行程(Create Process)，執行完畢後，呼叫作業系統執行終止行程(Terminate Process)；</span><br><span style="font-size: 16px;"> (c)在正常情況下，呼叫作業系統執行終止程式(End Program)，在有錯誤的情況下，摒棄程式(Abort Program)，並印出錯誤信息。</span></p>
+<p><span style="font-size: 16px;">2. 記憶體分配 (Allocate and Free Memory)：</span><br><span style="font-size: 16px;"> 當執行行程時，須配合主記憶體的空間、或 CPU 內的暫存器作資料(Data)儲存，這些動作均須呼叫作業系統執行記憶體分配(Allocate)、或釋出記憶體(Free)。</span></p>
+<p><span style="font-size: 16px;">3. 行程屬性 (Process Attributes)：</span><br><span style="font-size: 16px;"> 在執行過程中，為了配合其他行程的需要，往往要了解其他行程的屬性，此時呼叫作業系統讀取其他行程的屬性(Get Process Attributes)；亦或呼叫系統設定本身行程的屬性(Set Process Attributes)，以供其他行程觀察使用。</span></p>
+<p><span style="font-size: 16px;">4. 行程等待 (Wait)：</span><br><span style="font-size: 16px;"> 在執行過程中，有許多情況需要行程(Process)作等待，等待進入 CPU、等待滑鼠事件、等待鍵盤事件等等，為了執行過程井然有序，呼叫作業系統執行行程等待。</span></p>
+<h2><span style="font-size: 16px;">二、檔案管理(File Management)系統呼叫</span></h2>
+<p><span style="font-size: 16px;">一組資料(Data)或一個程式(Program)儲存於連續的記憶體內，以一個名稱代表之，是謂“檔案(File)”。在記憶體建立檔案、存取檔案等等作為，均須作系統呼叫由作業系統導引執行，其中項目有：</span><br><span style="font-size: 16px;"> 1. 檔案之建立與刪除(Create / Delete File)：建立或刪除一個檔案，均會改變記憶體的使用情況，必須呼叫作業系統導引執行。</span><br><span style="font-size: 16px;"> 2. 檔案資料存取 (Read / Write)：存取檔案資料必經之過程為：</span></p>
+<blockquote><p><span style="font-size: 16px;">(a)開啟檔案(Open File)、(b)存取檔案(Read / Write)、(c)關閉檔案(Close File)。</span></p></blockquote>
+<p><span style="font-size: 16px;">為了安全，均須呼叫作業系統導引執行。</span><br><span style="font-size: 16px;">3. 檔案屬性 (File Attributes)：為了配合存取檔案的需要，往往需要了解其他檔案的屬性，此時呼叫作業系統讀取其他檔案的屬性(Get File Attributes)；亦或呼叫作業系統設定本身檔案的屬性(Set File Attributes)，以供其他檔案讀取使用。</span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<h2><span style="font-size: 16px;">三、裝置管理(Devices Management)系統呼叫</span></h2>
+<p><span style="font-size: 16px;">電腦系統之各項硬體資源與週邊設備均歸類為裝置(Device)，當行程執行時將會要求分配資源、及存取資料，這些都是牽動系統的行為，須作系統呼叫執行：</span><br><span style="font-size: 16px;"> 1. 裝置之需求與釋放 (Request / Release Device)：在電腦系統中，裝置(Device)即是一種資源，當行程(Process)需求或釋出某項裝置時，須呼叫作業系統導引執行。</span><br><span style="font-size: 16px;"> 2. 裝置資料存取 (Read / Write)：存取裝置資料是 I/O 行為，為了安全，須呼叫作業系統導引執行。</span><br><span style="font-size: 16px;"> 3. 裝置屬性 (Device Attributes)：為了配合裝置執行 I/O 的需要，往往需要了解裝置的屬性，此時呼叫作業系統讀取該裝置的屬性 (Get Device Attributes)；亦或呼叫作業系統設定裝置的屬性(Set File Attributes)，以供讀取使用。</span><br><span style="font-size: 16px;"> 4. 邏輯連接 (Logically Attach / Detach)：於程式(Program)內設定一個名稱(Name)，比擬為某境外裝置，並作存取資料的連通，如此行為是謂“邏輯連接”，且需呼叫作業系統導引執行。</span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<h2><span style="font-size: 16px;">四、資料維護(Information Maintenance)系統呼叫</span></h2>
+<p><span style="font-size: 16px;">隨著時間的改變，將資料更新是謂“資料維護(Information Maintenance)”，如果是系統資料的更新，為了安全，須作系統呼叫執行：</span><br><span style="font-size: 16px;"> 1. 設定時間或日期(Set Time or Date)：電腦內部有計時裝置，配合計時器的運轉，作業系統對映顯示時間及日期，因是作業系統的管轄部份，如果更新顯示時間或日期，需呼叫作業系統導引執行。</span><br><span style="font-size: 16px;"> 2. 存取系統資料 (Get / Set System Data)：作業系統的資料牽涉電腦的整體運作，故其任何更新之改變需呼叫作業系統導引執行。</span><br><span style="font-size: 16px;"> 3. 存取行程、檔案、或裝置之屬性 (Get / Set Process、File、or Device Attributes)：如前述，行程、檔案、或裝置資料之存取，需呼叫作業系統導引執行，其屬性亦應呼叫作業系統導引執行。</span></p>
+<h2><span style="font-size: 16px;">五、連線通訊(Communication)系統呼叫</span></h2>
+<p><span style="font-size: 16px;">分散式系統是將散置各處的電腦以連線連通，執行訊息傳遞等 I/O 存取行為，故須作系統呼叫執行：</span><br><span style="font-size: 16px;"> 1. 建立或中斷連通連線 (Create / Delete Communication Connection)：實體連線的連接屬於網路實體層，如要改變現狀，需呼叫作業系統導引執行。</span><br><span style="font-size: 16px;"> 2. 輸入輸出網路資料 (Send / Receive Messages)：網路資料的輸入輸出牽涉甚多，除了 I/O 機制外，還有網路機制等問題，絕非程式本身可單獨執行者，為了安全，為了克服重重機制，需呼叫作業系統導引執行。</span><br><span style="font-size: 16px;"> 3. 狀態資訊之轉換 (Transfer Status Information)：為了配合不同的環境條件，系統須對某些區塊設定狀態旗標 (Status Flag)，媒合執行行程，如要轉換這些狀態資訊，需呼叫作業系統導引執行。</span><br><span style="font-size: 16px;"> 4. 使用遠端裝置 (Attach / Detach Remote Devices)：當使用網路遠端其他電腦或裝置時，系統應有相對之使用訊息，以供資源分配的依據，如果使用情況改變，需呼叫作業系統導引執行改變對應之使用訊息。</span></p>
+<h1><span style="font-size: 24px;">System Programs</span></h1>
+<p>&nbsp;</p>
+<h1><span style="font-size: 24px;">Operating-System Design and Implementation</span></h1>
+<p><span style="font-size: 16px;">作業系統的實作與設計</span></p>
+<ul><li><span style="font-size: 16px;">作業系統的實作與設計不完全是可解的(solvable)問題,但有些問題可以接近 證明成功</span></li>
+<li><span style="font-size: 16px;">作業系統的實作會從目標(goals)跟規格(Spec)開始</span></li>
+<li><span style="font-size: 16px;">會受到硬體的選擇與系統的種類而有影響</span></li>
+<li><span style="font-size: 16px;">用戶端目標(User goals):系統必須易於使用,學習簡單,可靠,安全,快速</span></li>
+<li><span style="font-size: 16px;">系統目標(System goals):系統容易設計,實作,維持,易於修理,可靠,有效</span></li>
+</ul><p><span style="font-size: 16px;">作業系統的原則分成:</span></p>
+<ol><li><span style="font-size: 16px;">政策:要做甚麼?</span></li>
+<li><span style="font-size: 16px;">機制:要怎麼做?</span></li>
+</ol><p><span style="font-size: 16px;">實作作業系統:</span></p>
+<ul><li><span style="font-size: 16px;">早期用組合語言</span></li>
+<li><span style="font-size: 16px;">系統程式語言Algol PL/1</span></li>
+<li><span style="font-size: 16px;">現在則用C/C++</span></li>
+</ul><p><span style="font-size: 16px;">也可以用架構分</span></p>
+<ul><li><span style="font-size: 16px;">最底層用組合語言</span></li>
+<li><span style="font-size: 16px;">主體用c語言</span></li>
+<li><span style="font-size: 16px;">系統程式用c/c++,腳本語言</span></li>
+</ul><p><span style="font-size: 16px;">越多高階語言實作可以增加可移植性,但是慢慢模擬(Emulation)可以讓系統跑在非原生的硬體上</span></p>
+<p>&nbsp;</p>
+<h1><span style="font-size: 24px;">Operating-System Structure</span></h1>
+<p><span style="font-size: 16px;">一般作業系統是個非常大的程式，有相當多的方式去架構：</span></p>
+<ul><li><span style="font-size: 16px;">簡單架構-MS-DOS</span></li>
+<li><span style="font-size: 16px;">複雜-UNIX</span></li>
+<li><span style="font-size: 16px;">分層-抽象結構</span></li>
+<li><span style="font-size: 16px;">微核心-Mach</span></li>
+</ul><p><span style="font-size: 16px;">&nbsp;</span></p>
+<h2><span style="font-size: 16px;">簡易架構(Simple Structure)</span></h2>
+<p><span style="font-size: 16px;">有些系統在設計之初，是以當時的需求與環境而著手設計，隨著時間的改變，系統需求增加，再將新的要求增設於原有設計上，如此未考量整體前瞻性的設計，見招拆招的設計方式稱為“簡易架構(Simple Structure)”。其優點是不必考量未知的難題，比較容易設計；</span><br><span style="font-size: 16px;"> 缺點是沒有整體規劃，以致系統雜亂互相干擾。MS-DOS 之系統架構即是一個典型範例，當初設計時因無前例可循，僅就當時的需求作設計，以後需求增加，為了相容性，繼續在原有的架構上增加設計，我們可看到應用程式 (Application Program)、常駐系統程式 (Resident System Program)、裝置驅動程式(MS-DOS Device Driver)不僅均可相互連通，還可各自直接連通 BIOS，如此權責混亂相互干擾，以致效果不彰。</span><br><span><img src="./02. 作業系統結構 (System Structure) _ 宅學習_files/02_ms_dos.jpg" alt="" width="340" height="219"><br> (MS-DOS示意圖)<span><br></span></span></p>
+<h2><span style="font-size: 16px;">階層架構(Layered Approach)</span></h2>
+<p><span style="font-size: 16px;">階層架構是一種負責任的系統架構，第 N 層的執行能力來自第 N-1 層提供的服務，也只關心第 N-1 層所發生的錯誤，整體系統沒有複雜牽扯的干擾。</span><br><span style="font-size: 16px;"> MS-DOS 之 OS/2 作業系統，即是階層架構實例，OS/2 是一優秀的 MS-DOS作業系統，可執行多人多工(Multitasks)與雙模式(Dual Mode)操作，整體系統沒有複雜牽拌的干擾。</span></p>
+<h2><span style="font-size: 16px;">微核心(Microkernel)</span></h2>
+<p><span style="font-size: 16px;">微核心(Microkernel)是較為新型式的作業系統架構，簡稱為“麥克(Mach)”。如前述，隨著電腦系統的發展，核心(Kernel)因加入新的功能也愈來愈大，微核心的意義是檢取核心之部份功能，以模組(Modules)形態向外推出，被推出的組模仍與核心連通且支援原有的功能，稱為可載入核心(Loadable Kernels)，如此不僅令核心輕巧易行，亦不失原有的執行功能。但此比較主要為舉例用，真正拿來做比較時，Mach 跟現代的微核心比還太過肥大。</span></p>
+<h2><span style="font-size: 16px;">模組架構(Modules)</span></h2>
+<p><span style="font-size: 16px;">目前的os都以loadable kernel modules 為主，意思就是需要時再做load，方便節省空間，了解物件討向即可了解相關原理。</span></p>
+<h2><span style="font-size: 16px;">混合作業(Hybrid Systems)</span></h2>
+<p><span style="font-size: 16px;">意思即為，將多種模組架構混合為多種模組組合，透過之間的特色去做呼叫應用，類似的作業呼叫相關的模組，更加快速並且減少作業時間。</span></p>
+<h1><span style="font-size: 24px;">Virtual Machines</span></h1>
+<p><span style="font-size: 16px;"><strong>虛擬機器基本觀念是將單一電腦硬體 (CPU、記憶體、磁碟機、網路介面卡等等)想像成幾個不同的執行環境，因此產生了每一個獨立執行環境在自己私人電腦執行的幻覺。</strong></span></p>
+<p><span style="font-size: 16px;"><strong>&nbsp;</strong></span></p>
+<p><span style="font-size: 16px;"><strong>模擬 程式可以在模擬器中轉換每個舊系統的指令對應到新系統的原生指令組之後才執行。</strong></span></p>
+<p><span style="font-size: 16px;"><strong>虛擬機器觀念非常有用，但它製作起來相當困難。困難是在於提供與實際機器完全一樣的複製。要記住的是實際機器有兩種模式 (mode):使用者模式和核心模式。 虛擬機器軟體可以在核心模式中執行，因為它是作業系統。虛擬機器自己只可以在使用者模式中執行。就像實際機器有兩個模式一樣，所以虛擬機器也必須是如此。</strong></span></p>
+<p><span style="font-size: 16px;">虛擬機器大致可被劃分為虛擬系統(System Virtual Machine)以及虛擬程序(Process Virtual Machine)。系統虛擬機器是1個可以執行作業系統的平台，而程序虛擬機器則顧名思義只能執行某個特定的程序。</span><br><br><span style="font-size: 16px;">虛擬系統又會因為虛擬技術的不同，而有所差別。例如，虛擬化技術分成全虛擬化(Full Virtualization)與半虛擬化(Para Virtualization)，這會影響到虛擬機器所能使用的硬體資源與作業系統的選擇。</span><br><br><span style="font-size: 16px;">全虛擬化完全依賴自己所建構的虛擬硬體層，Guest OS所能利用的硬體資源，會受限於虛擬出來的硬體資源，比較無法挪用實體的電腦硬體。除了中央處理器、記憶體，主機板之外無法模擬之外，舉凡BIOS、顯示卡等等都可以被模擬，但必須安裝專屬的驅動程式。</span><br><br><span style="font-size: 16px;">全虛擬化的優點，就是不管在怎樣的硬體環境中，Guest OS都能夠維持比較一致的相容性，而且可以使用與實體機器不同的作業系統。至於全虛擬化的缺點，則是會造成實體機器較大的負擔。舉例來說，1個Windows作業系統的使用者，可以虛擬一台使用Linux作業系統的電腦，並且在不改變實體資源配置的方式下執行2台電腦。一個虛擬機器的優點是多重作業系統可以同時在開發者的工作站上執行。這個虛擬的工作站允許在不同環境下快速的移植和程式測試。</span><br><br><span style="font-size: 16px;">半虛擬化並不在硬體之上配置虛擬層，而是將多個記憶體位置程式，變成可以在不同時間呼叫。半虛擬化可以讓Guest OS共享硬體資源，優點就是硬體不用將效能浪費在模擬硬體層之上，然而缺點就是虛擬機器中的作業系統必須與實體環境一致。</span><span><br><br><br></span></p>
+<h1>Operating-System Debugging</h1>
+<p><span style="font-size: 16px;"><strong>除錯是發現和修正系統中錯誤或缺陷的活動。除錯也包括效能調整，藉由移除發生在系統中處理的瓶頸來尋求效能改善。 失敗分析 一個行程失敗了，大部分的作業系統會編寫錯誤資訊到一個記錄檔案來警示系統操作者或使用者問題已經發生。除錯者是一個被設計成允許程式設計師探究行程碼和記憶體的工具。 效能調整 一些系統中，作業系統藉由產生系統行為的追蹤列表來執行這個監視系統效能任務。 一個效能調整的方法是包含與系統有相互作用的工具，此乃允許使用者和管理者來詢問系統不同要素的情況來尋找瓶頸。</strong></span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<p><span style="font-size: 16px;">有調試的操作系統，其中我所知道的四個主要方法：</span></p>
+<p><span style="font-size: 16px;">例行性檢查，以輸出到屏幕在一起。</span></p>
+<p><span style="font-size: 16px;">在Linux上內核恐慌是一個很好的例子。 Linux的人寫道，會打印出什麼，他們可以找出（包括堆棧跟踪），然後停止一切功能。</span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<p><span style="font-size: 16px;">調試器</span></p>
+<p><span style="font-size: 16px;">傳統上，下調試，一切都在計算機的作用是輸出通過串行線，以穩定的試驗機。隨著虛擬機的出現，現在可以連線一台虛擬機的執行串行線到同一個物理機，這是超級方便的其他程序。當然，但是，這需要你的作业系統發布它在做什麼，等待調試器連接。 KGDB （ Linux的）和WinDBG中（ Windows）中有一些這樣的作業系統的調試器。</span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<p><span style="font-size: 16px;">調試在一個作業系統的問題是相關的不確定性原理。中斷（其中大部分的硬錯誤肯定是）是異步的，頻繁的和不確定的。如果你的bug涉及一種特定的方式兩個中斷的重疊，你會不會有一個調試器將其暴露;該錯誤可能甚至不會發生。</span></p>
+<h1><span style="font-size: 24px;">Operation-System Generation</span></h1>
+<p><span style="font-size: 16px;"><strong>使用那一種CPU? 設立那些選擇項 (擴充指令集、浮點小數運算等等)?如果是多元CPU，每個CPU都必須介紹。 啟動磁碟是如何被格式化的？會被分割成多少部份或分割，以及什麼會進入每個分割的狀態？ 有多少記憶體可以使用?有些系統會藉由一個接著一個地參考記憶體位置直到一個 "違法位址"的錯誤產生來自己決定這個值。這個處理程序定義最後合法的位址以及可用記憶體的數量。 什麼裝置可以使用? 系統必須知道如何對每一個裝置定址 (它的裝置號碼)、裝置中斷編號、它的類型與模式以及任何特別的特性。 想要什麼類型的系統或使用什麼參數值? 這些選擇或值可能包括多少個這種大小的緩衝區可以使用、想要的CPU排班演算法則形式、可以支援行程的最大數量等等。</strong></span></p>
+<p><span style="font-size: 24px;">System Boot</span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<p><span style="font-size: 16px;"><strong>藉由載入核心來開啟一部電腦的步驟就是載入 (booting)系統。 在大部份電腦系統之中，有一小段程式碼，叫做靴帶式程式(bootstrap program)或叫做靴帶式載入器 (bootstrap loader)位於核心、載入記憶體，並開始執行核心程式。 有些電腦系統 (如PCs)，把這個步驟憂成兩個階段，先有一個非常簡單的靴帶式載入器從磁碟載入一個更複雜的載入程式，然後再由後者載入核心。</strong></span></p>
+<p><br class="Apple-interchange-newline"><span style="font-size: 16px;">&nbsp;&nbsp;</span></p>
+<p><span style="font-size: 16px;">從開機到mian函數的執行分三步完成，其目的是從啟動盤加載操作系統程序，完成執行main函數所需要的准備工作。第一步，啟動BIOS，准備實模式下的中斷向量表和中斷服務程序；第二部，從啟動盤加載操作系統程序到內存，加載操作系統程序的工作就是利用第一步中准備的中斷服務程序實現的；第三部，為執行32位的main函數做過度工作。</span></p>
+<p><span style="font-size: 16px;">1.啟動BIOS，准備實模式下的中斷向量表和中斷服務程序</span></p>
+<p><span style="font-size: 16px;">計算機的運行時離不開程序的。然而，加電的一瞬間，計算機的內存中，准確地說是RAM中，什麼程序也沒有。硬盤裡雖然有操作系統程序，但CPU的邏輯電路設計為只能運行內存中的程序，它沒有能力直接從硬盤運行操作系統。如果要運行硬盤中的操作系統，必須將軟盤中的操作系統加載到內存中。</span></p>
+<p><span style="font-size: 16px;">1.1.1 BIOS的啟動原理</span></p>
+<p><span style="font-size: 16px;">在了解BIOS是如何將操作系統程序加載到內存中之前，先來了解一下BIOS程序自身是如何啟動的。</span></p>
+<p><span style="font-size: 16px;">行體系的角度看，不難得出這樣的結論：既然軟件方法不可能執行BIOS，那就只能靠硬件方法完成了。</span></p>
+<p><span style="font-size: 16px;">從硬件角度看，80X86系列的CPU可以分別在16位實模式和32為保護模式下運行。為了兼容，也為了解決最開始的啟動問題，80X86系列CPU的硬件都設計為加電即進入16位實模式狀態運行。同時，CPU硬件邏輯設計為加電瞬間強行將CS的值置為0xF000，IP的值置為0xFFF0，這樣CS：IP就指向0xFFFF0這個地址位置。如果計算機加電之後這個位置沒有可執行代碼，那計算機就此死機。反之，如果這個位置有可執行代碼，計算機將從這裡的代碼開始，沿著後續程序一直執行下去。BIOS程序的入口地址就是0xFFFF0，也就是說，BIOS程序的第一條指令就設計在這個位置。</span></p>
+<p><span style="font-size: 16px;">1.1.2 BIOS在內存中加載中斷向量表和中斷服務程序</span></p>
+<p><span style="font-size: 16px;">BIOS程序在內存最開始的位置0x00000用1KB的內存空間0x00000-0x003FF構建中斷向量表，並在緊挨著它的位置用256字節的內存空間構建BIOS數據區（0x00400-0x004FF），在大約56KB以後的位置（0x0E2CE）加載了8KB左右的中斷向量表相應的若干中斷服務程序。中斷向量表中有256個中斷向量，每個中斷向量占4個字節，其中兩個字節是CS的值，兩個字節是IP的值，每個中斷向量都指向一個具體的中斷服務程序。</span></p>
+<p><span style="font-size: 16px;">然後利用這些中斷服務程序把系統內核從硬盤加載至內存。</span></p>
+<p><span style="font-size: 16px;">（中斷向量表：實模式中斷機制的重要組成部分，表中記錄所有中斷號對應的中斷服務程序的內存地址）</span></p>
+<p><span style="font-size: 16px;">（中斷服務程序：通過中斷向量表中的索引對中斷進行響應服務，是一些具有特定功能的程序）</span></p>
+<p><span style="font-size: 16px;">1.2 加載操作系統內核程序並為保護模式做准備</span></p>
+<p><span style="font-size: 16px;">從現在開始就要執行真正的boot操作了，即把軟盤中的操作系統程序加載至內存。對於Linux0.11操作系統而言，計算機將分三批次逐次加載操作系統代碼。第一批由BIOS中斷int0x19把第一扇區bootsect的內容加載到內存；第二批和第三批在bootsect的指揮下，分別把其後的四個扇區和隨後的240個扇區的內容加載至內存。</span></p>
+<p><span style="font-size: 16px;">1.2.1 加載第一部分代碼-引導程序（bootsect）</span></p>
+<p><span style="font-size: 16px;">計算機硬件體系結構的設計與BIOS聯手操作，會使CPU接收到一個int 0x19中斷，CPU接收到這個中斷後，會立即在中斷向量表中找到int 0x19中斷向量。接下來，中斷向量把CPU指向0x0E6F2，這個位置就是int 0x19想對應的中斷服務程序的入口地址，即“啟動加載服務程序”的入口地址。這個中斷服務程序的左右就是把軟盤的第一個扇區的程序加載到內存中的指定位置。這個中斷服務程序的功能是BIOS事先設計好的，代碼是固定的，與Linux操作系統無關，無論Linux0.11的內核是如何設計的，這段BIOS程序所要做到就是“找到軟盤”並“加載第一扇區”。其余的它什麼都不知道，也不必知道。</span></p>
+<p><span style="font-size: 16px;">按照上面的規則，int 0x19中斷向量所指向的中斷服務程序（即啟動加載服務程序）將軟驅0號磁頭對應盤面的0磁道1扇區的內容拷貝至內存0x07C00處。這個扇區裡的內容就是Linux0.11操作系統的引導程序，也就是bootsect，其作用就是陸續把硬盤中的操作系統程序載入內存。這樣制作的第一個扇區就稱為啟動扇區。第一扇區程序載入標志著Linux0.11操作系統中的代碼即將發揮作用了。</span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<div class="para"><a href="http://baike.baidu.com/view/1366.htm" target="_blank">&nbsp;</a></div>
+</div></div></div>  <div id="book-navigation-12937" class="book-navigation">
+    
+        <div class="page-links clearfix">
+              <a href="https://sls.weco.net/node/21321" class="page-previous" title="上一頁">&lt;01. 作業系統原理簡介</a>
+                    <a href="https://sls.weco.net/CollectiveNote20/OS" class="page-up" title="前往父頁面">上一層</a>
+                    <a href="https://sls.weco.net/node/21323" class="page-next" title="下一頁">03. 行程觀念 (Process Concept) &gt;</a>
+          </div>
+    
+  </div>
+  </div>
+
+      <footer>
+          </footer>
+  
+    </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+          </section>
+        </div>
+      
+                  <aside id="sidebar-first" role="complementary"><div class="region region-sidebar-first">
+  <div id="block-book-navigation" class="block block-book">
+
+        <h2><a href="https://sls.weco.net/CollectiveNote20" class="book-title">共同筆記 2.0</a></h2>
+    
+  <div class="content">
+    <ul class="menu"><li class="first collapsed"><a href="https://sls.weco.net/CollectiveNote20/HTML5">HTML5</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/Wearable">AIoT Wearable Computing 智慧物聯穿戴運算</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/BrainInformatics">Brain Informatics 腦資訊學</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/DrupalDev">Drupal建置開發管理</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/I-Ching">I-Ching Informatics 易經資訊學</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/WebHackDef">Web 攻防技術</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/WebFund">Web基本原理與技術</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/ewt">Web新興技術</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/XML">XML技術與應用</a></li>
+<li class="expanded active-trail"><a href="https://sls.weco.net/CollectiveNote20/OS" class="active-trail">作業系統</a><ul class="menu"><li class="first leaf"><a href="https://sls.weco.net/node/21321">01. 作業系統原理簡介</a></li>
+<li class="leaf active-trail"><a href="https://sls.weco.net/node/21322" class="active-trail active">02. 作業系統結構 (System Structure)</a></li>
+<li class="leaf"><a href="https://sls.weco.net/node/21323">03. 行程觀念 (Process Concept)</a></li>
+<li class="leaf"><a href="https://sls.weco.net/node/21324">04. 多執行緒 (Multi-thread)</a></li>
+<li class="leaf"><a href="https://sls.weco.net/node/21325">05. 行程排班/排程 (Process Scheduling)</a></li>
+<li class="leaf"><a href="https://sls.weco.net/node/21326">06. 同步 (Synchronization)</a></li>
+<li class="leaf"><a href="https://sls.weco.net/node/21327">07. 死結 (Deadlock)</a></li>
+<li class="leaf"><a href="https://sls.weco.net/node/21328">08. 記憶體管理策略 (Memory Management Strategies)</a></li>
+<li class="leaf"><a href="https://sls.weco.net/node/21329">09. 虛擬記憶體 (Virtual Memory)</a></li>
+<li class="leaf"><a href="https://sls.weco.net/node/21330">10. 檔案系統 (File System)</a></li>
+<li class="leaf"><a href="https://sls.weco.net/node/21331">11. 檔案系統實作 (Implementing File Systems)</a></li>
+<li class="leaf"><a href="https://sls.weco.net/node/21332">12. 大量儲存裝置結構 (Mass-Storage Structure)</a></li>
+<li class="leaf"><a href="https://sls.weco.net/node/21333">13. 輸入/輸出系統 (I/O Systems)</a></li>
+<li class="leaf"><a href="https://sls.weco.net/node/21334">14. 系統保護 (System Protection)</a></li>
+<li class="leaf"><a href="https://sls.weco.net/node/21335">15. 系統安全 (System Security)</a></li>
+<li class="leaf"><a href="https://sls.weco.net/node/21340">16. 即時作業系統 (Real-time Operating System)</a></li>
+<li class="leaf"><a href="https://sls.weco.net/node/21341">17. 多媒體作業系統 (Multimedia Operating System)</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/DistSys">18. 分散(佈)式系統</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/OS_Case_Study">19. S-14 作業系統案例研討</a></li>
+<li class="last collapsed"><a href="https://sls.weco.net/CollectiveNote20/OS_Case_Study_S16">20. S-16 雲端與物聯網作業系統案例研討</a></li>
+</ul></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/CloudSleep">智齡者心理與雲端科技</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/dwci">深網(Deep Web)智慧</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/HybridAPP">混成式 Windows 8 APP (with Javascript)</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/wmta">無線行動軟體技術</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/IOT">物聯網(Internet of Things)</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/SecondLife">第二人生 (Second Life)</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/Network">網路技術</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/BCC">計算機概論</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/Telehealth">遠距醫療健康服務(Telemedicine and Telehealth Services)</a></li>
+<li class="collapsed"><a href="https://sls.weco.net/CollectiveNote20/RWD">響應式設計(Responsive Web Design) </a></li>
+<li class="last leaf"><a href="https://sls.weco.net/CollectiveNote20/TypeSample">筆記撰寫規格範例</a></li>
+</ul>  </div>
+  
+</div> <!-- /.block -->
+<div id="block-user-login" class="block block-user">
+
+        <h2>使用者登入</h2>
+    
+  <div class="content">
+    <form action="https://sls.weco.net/node/21322?destination=node/21322" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">使用者名稱 <span class="form-required" title="此欄位不可空白。">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required">
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">密碼 <span class="form-required" title="此欄位不可空白。">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required">
+</div>
+<div class="item-list"><ul><li class="first"><a href="https://sls.weco.net/user/register" title="建立一個新的使用者帳號。">註冊新帳號</a></li>
+<li class="last"><a href="https://sls.weco.net/user/password" title="透過電子郵件索取新密碼">索取新密碼</a></li>
+</ul></div><input type="hidden" name="form_build_id" value="form-GS8LMmG7Md3m28O-nCUoDlylGK4Ji7oWs12YULlutH8">
+<input type="hidden" name="form_id" value="user_login_block">
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="登入" class="form-submit"></div></div></form>  </div>
+  
+</div> <!-- /.block -->
+<div id="block-user-online" class="block block-user">
+
+        <h2>線上使用者</h2>
+    
+  <div class="content">
+    <p>There is currently 1 user online.</p>  </div>
+  
+</div> <!-- /.block -->
+<div id="block-block-1" class="block block-block">
+
+      
+  <div class="content">
+    <script type="text/javascript">
+<!--//--><![CDATA[// ><!--
+
+google_ad_client = "pub-5439983126731589";
+/* 180x150, 已建立 2008/4/6 */
+google_ad_slot = "1903096161";
+google_ad_width = 180;
+google_ad_height = 150;
+
+
+//--><!]]>
+</script><script type="text/javascript" src="./02. 作業系統結構 (System Structure) _ 宅學習_files/f.txt">
+<!--//--><![CDATA[// ><!--
+
+
+//--><!]]>
+</script>  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+</aside>
+              
+        </div>
+
+        
+    </div>
+  </div>
+
+  
+</div>
+
+
+<!-- Footer -->
+
+<div id="footer">
+
+  
+  <div class="footer_credit">
+      
+    <div id="copyright" class="full-wrap clearfix">
+      <div class="copyright">© 2019 宅學習. All Rights Reserved.</div> 
+      
+      <!-- Social Links -->
+        
+              <span class="social-icons">
+         <ul>
+          <li><a class="fb" href="https://www.facebook.com/Social-Learning-Space-at-FJU-CSIE-102105146518841/" target="_blank" rel="me"><i class="fa fa-facebook"></i></a></li>
+          <li style="display: none;"><a class="twitter" href="https://sls.weco.net/node/21322" target="_blank" rel="me"><i class="fa fa-twitter"></i></a></li>
+          <li><a class="gplus" href="https://plus.google.com/112063030492314016893/about" target="_blank" rel="me"><i class="fa fa-google-plus"></i></a></li>
+          <li style="display: none;"><a class="linkedin" href="https://sls.weco.net/node/21322" target="_blank" rel="me"><i class="fa fa-linkedin"></i></a></li>
+          <li style="display: none;"><a class="pinterest" href="https://sls.weco.net/node/21322" target="_blank" rel="me"><i class="fa fa-pinterest"></i></a></li>
+          <li><a class="youtube" href="https://www.youtube.com/user/wecolab" target="_blank" rel="me"><i class="fa fa-youtube"></i></a></li>
+          <li><a class="rss" href="https://sls.weco.net/rss.xml"><i class="fa fa-rss"></i></a></li>
+         </ul>
+        </span>
+            <!-- End Social Links -->
+
+    </div>
+
+  </div>
+  <div class="credits">
+    Design by<a href="http://www.zymphonies.com/"> Zymphonies</a>
+  </div>
+
+</div>  
+<iframe src="./02. 作業系統結構 (System Structure) _ 宅學習_files/drawtexture.html" style="display: none;"></iframe></body></html>
